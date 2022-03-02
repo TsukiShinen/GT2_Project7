@@ -40,12 +40,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask _groundLayer;
 
+    private int _facingDirection = 1;
+
     private float _xInput = 0;
     private float _lastGroundedTime = 0;
     private float _lastJumpTime = 0;
     private float _gravityScale;
 
     private Rigidbody2D _rigidbody;
+    private Animator _animator;
 
     private bool _isJumping = false;
     private bool _jumpInputReleased = false;
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _animator = GetComponentInChildren<Animator>();
 
         _gravityScale = _rigidbody.gravityScale;
     }
@@ -61,6 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         Inputs();
         Checks();
+        Anim();
 
         _lastJumpTime -= Time.deltaTime;
         _lastGroundedTime -= Time.deltaTime;
@@ -105,6 +110,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Anim()
+    {
+        _animator.SetBool("isRunning", Mathf.Abs(_rigidbody.velocity.x) > 0.1f);
+        _animator.SetBool("isJumping", _rigidbody.velocity.y > 0.1f);
+        _animator.SetBool("isFalling", _rigidbody.velocity.y < -0.01f);
+    }
+
     void FixedUpdate()
     {
         Movement();
@@ -125,6 +137,17 @@ public class PlayerController : MonoBehaviour
         float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, _velPower) * Mathf.Sign(speedDif);
 
         _rigidbody.AddForce(movement * Vector2.right);
+
+        if (_xInput > 0.01f && _facingDirection == -1)
+        {
+            _facingDirection = 1;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        } else if (_xInput < -0.01f && _facingDirection == 1)
+        {
+            _facingDirection = -1;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+        Debug.Log(_xInput);
     }
 
     void Friction()
