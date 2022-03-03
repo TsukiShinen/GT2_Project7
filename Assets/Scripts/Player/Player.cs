@@ -54,6 +54,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        GravityScale = Rigidbody.gravityScale;
+
         _currentState = IdleState;
     }
 
@@ -90,7 +92,6 @@ public class Player : MonoBehaviour
             _currentState.Exit();
         }
         _currentState = state;
-        Debug.Log("Player Change State : " + state.ToString());
         _currentState.Enter();
     }
 }

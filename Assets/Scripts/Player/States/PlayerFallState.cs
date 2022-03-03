@@ -13,7 +13,6 @@ public class PlayerFallState : IPlayerState
 
     public void HandleInput()
     {
-        Debug.Log(_player.LastGroundedTime);
         if (Mathf.Abs(_player.Rigidbody.velocity.y) < 0.01f) { _player.ChangeState(_player.IdleState); }
         else if (_player.LastGroundedTime > 0 && _player.LastJumpTime > 0) { _player.ChangeState(_player.JumpState); }
     }
@@ -26,6 +25,7 @@ public class PlayerFallState : IPlayerState
 
     public void FixedUpdate()
     {
+        JumpGravity();
         // Can Move while falling
         _player.RunState.FixedUpdate();
     }
@@ -40,6 +40,7 @@ public class PlayerFallState : IPlayerState
         {
             _player.Rigidbody.gravityScale = _player.GravityScale;
         }
+        Debug.Log(_player.Rigidbody.gravityScale);
     }
 
     public void Enter()
