@@ -13,7 +13,7 @@ public class PlayerFallState : IPlayerState
 
     public void HandleInput()
     {
-        if (Mathf.Abs(_player.Rigidbody.velocity.y) < 0.01f) { _player.ChangeState(_player.IdleState); }
+        if (Mathf.Abs(_player.Rigidbody.velocity.y) < 0.01f) { _player.ChangeState(_player.RunState); }
         else if (_player.LastGroundedTime > 0 && _player.LastJumpTime > 0) { _player.ChangeState(_player.JumpState); }
     }
 

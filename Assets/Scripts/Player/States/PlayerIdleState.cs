@@ -30,7 +30,7 @@ public class PlayerIdleState : IPlayerState
 
     public void Enter()
     {
-
+        _player.Rigidbody.velocity = new Vector2(0, 0);
     }
 
     public void Exit()
