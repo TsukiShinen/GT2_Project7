@@ -40,6 +40,14 @@ public class Player : StateMachine
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
 
+    private Checkpoint lastCheckPoint;
+    public Checkpoint LastCheckPoint
+    {
+        get => lastCheckPoint;
+        set => lastCheckPoint = value;
+    }
+
+
     void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
@@ -77,4 +85,13 @@ public class Player : StateMachine
             LastGroundedTime = JumpCoyoteTime;
         }
     }
+
+    public void Respawn()
+    {
+        if (lastCheckPoint != null)
+            transform.position = lastCheckPoint.transform.position;
+        else
+            UnityEngine.SceneManagement.SceneManager.LoadScene("HugoScene");
+    }
+
 }
