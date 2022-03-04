@@ -40,7 +40,6 @@ public class PlayerFallState : IState
         {
             _player.Rigidbody.gravityScale = _player.GravityScale;
         }
-        Debug.Log(_player.Rigidbody.gravityScale);
     }
 
     public void Enter()
