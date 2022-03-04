@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : StateMachine
 {
     [Header("Movement")]
     public float MoveSpeed;
@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
     public Rigidbody2D Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
 
-    private IPlayerState _currentState;
     public PlayerIdleState IdleState { get; private set; }
     public PlayerRunState RunState { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
@@ -59,39 +58,23 @@ public class Player : MonoBehaviour
         _currentState = IdleState;
     }
 
-    void Update()
+    protected override void LogicUpdate()
     {
         if (Input.GetKey(KeyCode.Space))
         {
             LastJumpTime = JumpBufferTime;
         }
 
-        _currentState.HandleInput();
-        _currentState.Update();
-
-
         LastJumpTime -= Time.deltaTime;
         LastGroundedTime -= Time.deltaTime;
     }
 
-    private void FixedUpdate()
+    protected override void PhysicsUpdate()
     {
         // Check
         if (Physics2D.OverlapBox(GroundCheckPoint.position, GroundCheckSize, 0, GroundLayer))
         {
             LastGroundedTime = JumpCoyoteTime;
         }
-
-        _currentState.FixedUpdate();
-    }
-
-    public void ChangeState(IPlayerState state) 
-    {
-        if (_currentState != null) 
-        {
-            _currentState.Exit();
-        }
-        _currentState = state;
-        _currentState.Enter();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFallState : IPlayerState
+public class PlayerFallState : IState
 {
     Player _player;
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJumpState : IPlayerState
+public class PlayerJumpState : IState
 {
     Player _player;
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlayerState
+public interface IState
 {
     public void HandleInput();
     public void Update();
