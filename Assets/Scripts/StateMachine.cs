@@ -8,10 +8,11 @@ public class StateMachine : MonoBehaviour
 
     void Update()
     {
+        LogicUpdate();
+
+        if (_currentState == null) { return; }
         _currentState.HandleInput();
         _currentState.Update();
-
-        LogicUpdate();
     }
 
     protected virtual void LogicUpdate()
@@ -21,9 +22,10 @@ public class StateMachine : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _currentState.FixedUpdate();
-
         PhysicsUpdate();
+
+        if (_currentState == null) { return; }
+        _currentState.FixedUpdate();
     }
 
     protected virtual void PhysicsUpdate()
