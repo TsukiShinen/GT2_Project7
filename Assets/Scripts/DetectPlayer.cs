@@ -6,6 +6,7 @@ using UnityEngine;
 public class DetectPlayer : MonoBehaviour
 {
     public bool IsPlayerDetected { get; private set; }
+    public Vector3 PlayerPosition { get;private set; }
 
     private void Start()
     {
@@ -14,8 +15,22 @@ public class DetectPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Player")) { IsPlayerDetected = false;  return; }
+        if (!collision.CompareTag("Player")) { return; }
 
         IsPlayerDetected = true;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) { return; }
+
+        PlayerPosition = collision.transform.position;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (!collision.CompareTag("Player")) { return; }
+
+        IsPlayerDetected = false;
     }
 }

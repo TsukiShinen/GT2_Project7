@@ -12,7 +12,7 @@ public class BatFlyState : IState
     }
     public void HandleInput()
     {
-
+        if (!_bat.Detection.IsPlayerDetected) { _bat.ChangeState(_bat.ToIdleState); }
     }
 
     public void Update()
@@ -22,7 +22,10 @@ public class BatFlyState : IState
 
     public void FixedUpdate()
     {
+        if (Vector2.Distance(_bat.Detection.PlayerPosition, _bat.transform.position) <= _bat.AttackRange) { _bat.Rigidbody.velocity = Vector2.zero; return; }
 
+        Vector2 dir = (_bat.Detection.PlayerPosition - _bat.transform.position).normalized;
+        _bat.Rigidbody.AddForce(dir * _bat.Speed * Time.fixedDeltaTime);
     }
 
     public void Enter()
@@ -32,6 +35,6 @@ public class BatFlyState : IState
 
     public void Exit()
     {
-        _bat.Animator.SetBool("Fly", false);
+
     }
 }
