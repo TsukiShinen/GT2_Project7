@@ -2,17 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatAttackState : MonoBehaviour
+public class BatAttackState : IState
 {
-    // Start is called before the first frame update
-    void Start()
+    private BatController _bat;
+
+    private bool _attacking;
+
+    public BatAttackState(BatController bat)
     {
-        
+        _bat = bat;
     }
 
-    // Update is called once per frame
-    void Update()
+    public IState HandleInput()
     {
-        
+        if (!_attacking) { return _bat.FlyState; }
+
+        return this;
+    }
+
+    public void Update()
+    {
+
+    }
+
+    public void FixedUpdate()
+    {
+
+    }
+
+    public void Enter()
+    {
+        _attacking = true;
+        _bat.Animator.SetTrigger("Attack");
+        _bat.StartCoroutine(Attack());
+    }
+
+    public void Exit()
+    {
+        _bat.AttackTimer = _bat.AttackCooldown;
+    }
+
+    private IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(0.3f);
+        _bat.AttackBox.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        _bat.AttackBox.SetActive(false);
+        _attacking = false;
     }
 }
