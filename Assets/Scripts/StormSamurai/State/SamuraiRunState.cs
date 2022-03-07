@@ -15,7 +15,7 @@ public class SamuraiRunState : IState
     {
         if (!_samurai.Detection.IsPlayerDetected)
             return _samurai.ToIdleState;
-        else if (Vector2.Distance(_samurai.Detection.PlayerPosition, _samurai.transform.position) <= _samurai.AttackRange)
+        else if (Vector2.Distance(_samurai.Detection.PlayerPosition, _samurai.transform.position) <= _samurai.AttackRange && _samurai.AttackTimer <= 0)
             return _samurai.AttackState;
         return this;
     }
@@ -34,6 +34,11 @@ public class SamuraiRunState : IState
             return;
         }
         Vector2 dir = new Vector2(_samurai.Detection.PlayerPosition.x - _samurai.transform.position.x, 0).normalized;
+        if (dir == new Vector2(1, 0))
+            _samurai.SpriteRenderer.flipX = false;
+        else
+            _samurai.SpriteRenderer.flipX = true;
+
         _samurai.Rigidbody.AddForce(dir * _samurai.Speed * Time.deltaTime);
         _samurai.Animator.SetBool("Run", true);
     }
