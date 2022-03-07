@@ -11,10 +11,12 @@ public class PlayerFallState : IState
         _player = player;
     }
 
-    public void HandleInput()
+    public IState HandleInput()
     {
-        if (Mathf.Abs(_player.Rigidbody.velocity.y) < 0.01f) { _player.ChangeState(_player.RunState); }
-        else if (_player.LastGroundedTime > 0 && _player.LastJumpTime > 0) { _player.ChangeState(_player.JumpState); }
+        if (Mathf.Abs(_player.Rigidbody.velocity.y) < 0.01f) { return _player.RunState; }
+        else if (_player.LastGroundedTime > 0 && _player.LastJumpTime > 0) { return _player.JumpState; }
+
+        return this;
     }
 
     public void Update()

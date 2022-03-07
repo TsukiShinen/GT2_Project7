@@ -11,12 +11,11 @@ public class BatIdleState : IState
         _bat = bat;
     }
 
-    public void HandleInput()
+    public IState HandleInput()
     {
-        if (_bat.Detection.IsPlayerDetected)
-        {
-            _bat.ChangeState(_bat.FlyState);
-        }
+        if (_bat.Detection.IsPlayerDetected) { return _bat.FlyState; }
+
+        return this;
     }
 
     public void Update()

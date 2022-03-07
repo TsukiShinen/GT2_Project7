@@ -11,7 +11,7 @@ public class StateMachine : MonoBehaviour
         LogicUpdate();
 
         if (_currentState == null) { return; }
-        _currentState.HandleInput();
+        ChangeState(_currentState.HandleInput());
         _currentState.Update();
     }
 
@@ -35,6 +35,7 @@ public class StateMachine : MonoBehaviour
 
     public void ChangeState(IState state)
     {
+        if (_currentState == state) { return; }
         if (_currentState != null)
         {
             _currentState.Exit();

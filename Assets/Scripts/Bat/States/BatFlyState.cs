@@ -10,9 +10,12 @@ public class BatFlyState : IState
     {
         _bat = bat;
     }
-    public void HandleInput()
+    public IState HandleInput()
     {
-        if (!_bat.Detection.IsPlayerDetected) { _bat.ChangeState(_bat.ToIdleState); }
+        if (!_bat.Detection.IsPlayerDetected) { return _bat.ToIdleState; }
+        if (Vector2.Distance(_bat.Detection.PlayerPosition, _bat.transform.position) <= _bat.AttackRange) { }
+
+        return this;
     }
 
     public void Update()

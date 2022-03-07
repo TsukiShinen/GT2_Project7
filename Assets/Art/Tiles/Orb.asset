@@ -12,9 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
   m_Name: Orb
   m_EditorClassIdentifier: 
-  m_AnimatedSprites: []
-  m_MinSpeed: 1
-  m_MaxSpeed: 1
+  m_AnimatedSprites:
+  - {fileID: 1395571440, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: 1112341110, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: 608090467, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: 1527981062, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: 1821608885, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: 693482750, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: 1289242072, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: 525168810, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: 1488106405, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  - {fileID: -2016245077, guid: 03a40ec20a709b04f95f24965c0bb8ca, type: 3}
+  m_MinSpeed: 12
+  m_MaxSpeed: 12
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
   m_TileColliderType: 0
