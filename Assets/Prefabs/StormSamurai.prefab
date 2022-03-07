@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1313662581586769755}
   - component: {fileID: 953538633004869712}
   - component: {fileID: -6649220892312809005}
+  - component: {fileID: 201794680810780003}
   m_Layer: 0
   m_Name: StormSamurai
   m_TagString: Untagged
@@ -81,6 +82,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &201794680810780003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178417851497424867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bec1cf81c4b6724ca753fe537357b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 10
+  AttackRange: 0
+  Detection: {fileID: 0}
 --- !u!1 &932103145380815050
 GameObject:
   m_ObjectHideFlags: 0
