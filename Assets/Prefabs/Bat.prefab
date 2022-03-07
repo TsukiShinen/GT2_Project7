@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1808162553
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 1878595607, guid: 87dbbbaca0b924c4a81acf95318e620b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,7 +186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 50
-  AttackRange: 2
+  AttackRange: 1.5
+  AttackCooldown: 1
   Detection: {fileID: 0}
   AttackBox: {fileID: 8968876475426007434}
 --- !u!50 &3061656366196147406
@@ -278,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6592611143205200885}
   - component: {fileID: 1693153616278561506}
+  - component: {fileID: 1408226808}
   m_Layer: 0
   m_Name: AttackBox
   m_TagString: Untagged
@@ -326,3 +328,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1560373, y: 1.2210524}
   m_EdgeRadius: 0
+--- !u!114 &1408226808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8968876475426007434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c90d85c309efe4cb5a7f50b2309c83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockback: 500
