@@ -11,9 +11,12 @@ public class BatToIdleState : IState
         _bat = bat;
     }
 
-    public void HandleInput()
+    public IState HandleInput()
     {
-        if (_bat.transform.position == _bat.BasePosition) { _bat.ChangeState(_bat.IdleState); }
+        if (_bat.transform.position == _bat.BasePosition) { return _bat.IdleState; }
+        if (_bat.Detection.IsPlayerDetected) { return _bat.FlyState; }
+
+        return this;
     }
 
     public void Update()

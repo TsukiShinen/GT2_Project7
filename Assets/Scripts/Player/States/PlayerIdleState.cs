@@ -11,11 +11,13 @@ public class PlayerIdleState : IState
         _player = player;
     }
 
-    public void HandleInput()
+    public IState HandleInput()
     {
-        if (Mathf.Abs(_player.Rigidbody.velocity.y) > 0.01f) { _player.ChangeState(_player.FallState); }
-        else if (_player.LastGroundedTime > 0 && _player.LastJumpTime > 0) { _player.ChangeState(_player.JumpState); }
-        else if (Input.GetAxisRaw("Horizontal") != 0) { _player.ChangeState(_player.RunState); }
+        if (Mathf.Abs(_player.Rigidbody.velocity.y) > 0.01f) { return _player.FallState; }
+        else if (_player.LastGroundedTime > 0 && _player.LastJumpTime > 0) { return _player.JumpState; }
+        else if (Input.GetAxisRaw("Horizontal") != 0) { return _player.RunState; }
+
+        return this;
     }
 
     public void Update()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IState
 {
-    public void HandleInput();
+    public IState HandleInput();
     public void Update();
     public void FixedUpdate();
     public void Enter();

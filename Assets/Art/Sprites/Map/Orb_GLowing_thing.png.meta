@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 592a2bbf838f11c4e8f89fbb8717d494
+guid: 03a40ec20a709b04f95f24965c0bb8ca
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,127 +104,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_0
+      name: Orb_GLowing_thing_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 235
-        width: 134
-        height: 47
-      alignment: 9
-      pivot: {x: 0.2990148, y: 0.2528557}
+        y: 414
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0df42d72ab17a6428dc80c349b2ce97
-      internalID: 747936960
+      spriteID: e9a2972722cc29041a1d008618a21d1d
+      internalID: 1395571440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_1
+      name: Orb_GLowing_thing_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 188
-        width: 134
-        height: 47
-      alignment: 9
-      pivot: {x: 0.2990148, y: 0.2528557}
+        y: 368
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac5019add2d869743b1d709e20825be4
-      internalID: -2136627886
+      spriteID: 55e93a632c718a44a9573a6cff734529
+      internalID: 1112341110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_2
+      name: Orb_GLowing_thing_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 141
-        width: 134
-        height: 47
-      alignment: 9
-      pivot: {x: 0.2990148, y: 0.2528557}
+        y: 322
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5d6c916969ba4c489ac804c88d729ec
-      internalID: 1663421299
+      spriteID: 2d8a8f27206d925419b669a06a7b5fec
+      internalID: 608090467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_3
+      name: Orb_GLowing_thing_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 94
-        width: 134
-        height: 47
-      alignment: 9
-      pivot: {x: 0.2990148, y: 0.2528557}
+        y: 276
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9efa749777d92bd458dfc378911f1718
-      internalID: 2052811946
+      spriteID: e6a452e44d5c200428bf7d70efaedccc
+      internalID: 1527981062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_4
+      name: Orb_GLowing_thing_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 47
-        width: 134
-        height: 47
-      alignment: 9
-      pivot: {x: 0.2990148, y: 0.2528557}
+        y: 230
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86f448f57a6bb5b49873dfaf1a89d6e9
-      internalID: -30201725
+      spriteID: c2c6cf3fd6d62e948bc312df4d068381
+      internalID: 1821608885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run_5
+      name: Orb_GLowing_thing_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 184
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097c33e0dc090994c990ee32fdb3ea74
+      internalID: 693482750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orb_GLowing_thing_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 138
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb4078da80b643b42bb9dabdccd37f36
+      internalID: 1289242072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orb_GLowing_thing_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3ee41cc7e349942982988287f8b7e4
+      internalID: 525168810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orb_GLowing_thing_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 46
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2804ceedd1e01744b15b52efcd2b9fc
+      internalID: 1488106405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orb_GLowing_thing_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 134
-        height: 47
-      alignment: 9
-      pivot: {x: 0.2990148, y: 0.2528557}
+        width: 77
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a532a8a7ac72434b9689c19be048e8a
-      internalID: -1000488800
+      spriteID: 265256e77ed767b4697e0c088842a44b
+      internalID: -2016245077
       vertices: []
       indices: 
       edges: []
@@ -240,12 +324,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      run_1: -2136627886
-      run_2: 1663421299
-      run_4: -30201725
-      run_5: -1000488800
-      run_0: 747936960
-      run_3: 2052811946
+      Orb_GLowing_thing_3: 1527981062
+      Orb_GLowing_thing_0: 1395571440
+      Orb_GLowing_thing_8: 1488106405
+      Orb_GLowing_thing_9: -2016245077
+      Orb_GLowing_thing_4: 1821608885
+      Orb_GLowing_thing_6: 1289242072
+      Orb_GLowing_thing_5: 693482750
+      Orb_GLowing_thing_7: 525168810
+      Orb_GLowing_thing_2: 608090467
+      Orb_GLowing_thing_1: 1112341110
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

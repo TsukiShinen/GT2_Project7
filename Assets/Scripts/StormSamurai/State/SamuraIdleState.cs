@@ -2,25 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatIdleState : IState
+public class SamuraiIdleState : IState
 {
-    private BatController _bat;
+    private SamuraiController _samurai;
 
-    public BatIdleState(BatController bat)
+    public SamuraiIdleState(SamuraiController samurai)
     {
-        _bat = bat;
+        _samurai = samurai;
     }
 
     public IState HandleInput()
     {
-        if (_bat.Detection.IsPlayerDetected) { return _bat.FlyState; }
-
-        return this;
+        if (_samurai.Detection.IsPlayerDetected)
+            return _samurai.RunState;
+        else
+            return this;
     }
 
     public void Update()
     {
-
+        
     }
 
     public void FixedUpdate()

@@ -11,13 +11,15 @@ public class PlayerJumpState : IState
         _player = player;
     }
 
-    public void HandleInput()
+    public IState HandleInput()
     {
-        if (_player.Rigidbody.velocity.y < 0f) { _player.ChangeState(_player.FallState); }
+        if (_player.Rigidbody.velocity.y < 0f) { return _player.FallState; }
         else if (Input.GetButtonUp("Jump"))
         {
             OnJumpOn();
         }
+
+        return this;
     }
 
     void OnJumpOn()
