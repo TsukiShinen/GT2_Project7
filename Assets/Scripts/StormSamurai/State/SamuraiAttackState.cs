@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SamuraiToIdleState : IState
+public class SamuraiAttackState : IState
 {
     private SamuraiController _samurai;
 
-    public SamuraiToIdleState(SamuraiController samurai)
+    private bool _isAttacking;
+
+    public SamuraiAttackState(SamuraiController samurai)
     {
         _samurai = samurai;
     }
 
     public IState HandleInput()
     {
-        if (_samurai.Rigidbody.velocity == Vector2.zero)
+        if (!_isAttacking)
             return _samurai.IdleState;
-        else if (_samurai.Detection.IsPlayerDetected)
-            return _samurai.RunState;
 
         return this;
     }
@@ -28,16 +28,18 @@ public class SamuraiToIdleState : IState
 
     public void FixedUpdate()
     {
-        _samurai.Rigidbody.velocity = Vector2.zero;
+
     }
 
     public void Enter()
     {
-        
+        _isAttacking = true;
+        _samurai.Animator.SetTrigger("Attack1");
+        _isAttacking = false;
     }
 
     public void Exit()
     {
-        _samurai.Animator.SetBool("Run", false);
+
     }
 }

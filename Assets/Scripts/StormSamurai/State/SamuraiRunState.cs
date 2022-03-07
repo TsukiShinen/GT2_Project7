@@ -15,7 +15,8 @@ public class SamuraiRunState : IState
     {
         if (!_samurai.Detection.IsPlayerDetected)
             return _samurai.ToIdleState;
-
+        else if (Vector2.Distance(_samurai.Detection.PlayerPosition, _samurai.transform.position) <= _samurai.AttackRange)
+            return _samurai.AttackState;
         return this;
     }
 

@@ -12,6 +12,7 @@ public class SamuraiController : StateMachine
     public SamuraiIdleState IdleState { get; private set; }
     public SamuraiRunState RunState { get; private set; }
     public SamuraiToIdleState ToIdleState { get; private set; }
+    public SamuraiAttackState AttackState { get; private set; }
 
     public Vector3 BasePosition { get; private set; }
 
@@ -28,6 +29,7 @@ public class SamuraiController : StateMachine
         IdleState = new SamuraiIdleState(this);
         RunState = new SamuraiRunState(this);
         ToIdleState = new SamuraiToIdleState(this);
+        AttackState = new SamuraiAttackState(this);
     }
 
     void Start()
