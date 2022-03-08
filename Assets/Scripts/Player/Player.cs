@@ -29,6 +29,10 @@ public class Player : StateMachine
     [Space(10)]
     public LayerMask GroundLayer;
 
+    [Header("Check")]
+    public float DashingVelocity;
+    public float DashingTime;
+
     [Space(10)]
     [Space(10)]
     public int MaxLife;
@@ -40,11 +44,13 @@ public class Player : StateMachine
 
     public Rigidbody2D Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
+    public TrailRenderer TrailRenderer { get; private set; }
 
     public PlayerIdleState IdleState { get; private set; }
     public PlayerRunState RunState { get; private set; }
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
+    public PlayerDashState DashState { get; private set; }
 
     private Checkpoint lastCheckPoint;
     public int life { get;private set; }
@@ -60,11 +66,13 @@ public class Player : StateMachine
     {
         Rigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponentInChildren<Animator>();
+        TrailRenderer = GetComponentInChildren<TrailRenderer>();
 
         IdleState = new PlayerIdleState(this);
         RunState = new PlayerRunState(this);
         JumpState = new PlayerJumpState(this);
         FallState = new PlayerFallState(this);
+        DashState = new PlayerDashState(this);
 
         life = MaxLife;
     }

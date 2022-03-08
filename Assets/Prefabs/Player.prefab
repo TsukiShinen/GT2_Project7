@@ -340,6 +340,8 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  DashingVelocity: 14
+  DashingTime: 0.5
   MaxLife: 10
   lifeBar: {fileID: 0}
 --- !u!1 &9005378476295983844
