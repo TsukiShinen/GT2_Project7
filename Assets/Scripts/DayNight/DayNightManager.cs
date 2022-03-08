@@ -22,7 +22,7 @@ public class DayNightManager : MonoBehaviour
     }
     #endregion
     [SerializeField]
-    private float _transitionTime = 1f;
+    private float _transitionTime = 5f;
     [SerializeField]
     private AnimationCurve _dayCurve;
     [SerializeField]
@@ -34,6 +34,8 @@ public class DayNightManager : MonoBehaviour
     public delegate void SetIntensity(float percentage);
     public event SetIntensity SetLightIntensity;
 
+    public bool IsDay;
+
     private void Start()
     {
         _currentCurve = _dayCurve;
@@ -43,6 +45,7 @@ public class DayNightManager : MonoBehaviour
     public void ChangeTime()
     {
         _currentCurve = (_currentCurve == _dayCurve) ? _nightCurve : _dayCurve;
+        IsDay = (_currentCurve == _dayCurve) ? true : false;
         StartCoroutine(Transition());
     }
 

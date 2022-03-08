@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutomateSleepState : IState
+public class AutomateNoneState : IState
 {
     private AutomateController _automate;
 
-    public AutomateSleepState(AutomateController automate)
+    public AutomateNoneState(AutomateController automate)
     {
         _automate = automate;
     }
 
     public IState HandleInput()
     {
-        if (_automate.Detection.IsPlayerDetected)
-            return _automate.AwakeState;
-
         return this;
     }
 
@@ -31,7 +28,7 @@ public class AutomateSleepState : IState
 
     public void Enter()
     {
-        
+
     }
 
     public void Exit()

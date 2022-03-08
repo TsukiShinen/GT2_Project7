@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AutomateController : StateMachine
 {
+    public bool isDay;
+
     public float Speed;
     public float AttackRange;
     public float AttackCooldown = 1f;
@@ -16,6 +18,7 @@ public class AutomateController : StateMachine
     public AutomateRunState RunState { get; private set; }
     public AutomateToSleepState ToSleepState { get; private set; }
     public AutomateAttackState AttackState { get; private set; }
+    public AutomateNoneState NoneState { get; private set; }
 
     public Vector3 BasePosition { get; private set; }
 
@@ -36,6 +39,7 @@ public class AutomateController : StateMachine
         RunState = new AutomateRunState(this);
         ToSleepState = new AutomateToSleepState(this);
         AttackState = new AutomateAttackState(this);
+        NoneState = new AutomateNoneState(this);
     }
 
     protected override void LogicUpdate()
@@ -50,4 +54,10 @@ public class AutomateController : StateMachine
     {
         _currentState = SleepState;
     }
+
+    /*void Update()
+    {
+        isDay = DayNightManager.Instance.IsDay;
+        _currentState = isDay ? SleepState : NoneState;
+    }*/
 }
