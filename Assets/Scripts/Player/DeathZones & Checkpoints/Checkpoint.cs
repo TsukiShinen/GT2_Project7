@@ -8,10 +8,6 @@ public class Checkpoint : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
             return;
-
-        Debug.Log("check");
         collision.GetComponent<Player>().LastCheckPoint = this;
-        gameObject.SetActive(false);
-
     }
 }

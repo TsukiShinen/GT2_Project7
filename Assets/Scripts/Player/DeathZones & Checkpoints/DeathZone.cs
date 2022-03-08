@@ -8,8 +8,6 @@ public class DeathZone : MonoBehaviour
     {
         if (!collision.CompareTag("Player"))
             return;
-
-        Debug.Log("death");
         collision.GetComponent<Player>().Respawn();
     }
 }
