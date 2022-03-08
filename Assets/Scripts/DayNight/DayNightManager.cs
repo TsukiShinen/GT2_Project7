@@ -48,8 +48,6 @@ public class DayNightManager : MonoBehaviour
 
     private IEnumerator Transition()
     {
-
-        yield return new WaitForSeconds(1f);
         float timer = 0f;
         while(timer < _transitionTime) {
             _lightIntensity = timer / _transitionTime;
@@ -57,5 +55,6 @@ public class DayNightManager : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+        ChangeTime();
     }
 }
