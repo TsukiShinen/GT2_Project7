@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1808162553
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1506669896, guid: 483bc7f74fb33f04a9118d93fe00eda6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -279,6 +279,8 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  MaxLife: 10
+  lifeBar: {fileID: 0}
 --- !u!1 &9005378476295983844
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9005378476295983845}
   - component: {fileID: 9005378476295983846}
+  - component: {fileID: 1985538396}
   m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
@@ -331,7 +334,7 @@ MonoBehaviour:
   m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000f3139b36c912d410f95ec66b97487f541d12598d
+  m_ApplyToSortingLayers: 00000000419f67b645a415eec912d41097487f54f95ec66b1d12598d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -389,6 +392,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &1985538396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9005378476295983844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a532a141cc741314a9f80c1e0c4b9c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isNightLight: 1
 --- !u!1 &9005378476308714603
 GameObject:
   m_ObjectHideFlags: 0
