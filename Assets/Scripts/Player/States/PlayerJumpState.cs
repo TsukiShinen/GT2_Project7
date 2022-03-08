@@ -18,6 +18,7 @@ public class PlayerJumpState : IState
         {
             OnJumpOn();
         }
+        else if (Input.GetKeyDown(KeyCode.A)) { return _player.DashState; }
 
         return this;
     }
