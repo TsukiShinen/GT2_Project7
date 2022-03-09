@@ -55,6 +55,8 @@ public class Player : StateMachine
     private Checkpoint lastCheckPoint;
     public int life { get;private set; }
 
+    public bool CanDash;
+
     public Checkpoint LastCheckPoint
     {
         get => lastCheckPoint;
@@ -75,6 +77,7 @@ public class Player : StateMachine
         DashState = new PlayerDashState(this);
 
         life = MaxLife;
+        CanDash = false;
     }
 
     void Start()
@@ -104,6 +107,7 @@ public class Player : StateMachine
         if (Physics2D.OverlapBox(GroundCheckPoint.position, GroundCheckSize, 0, GroundLayer))
         {
             LastGroundedTime = JumpCoyoteTime;
+            CanDash = true;
         }
     }
 

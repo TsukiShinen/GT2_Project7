@@ -42,5 +42,6 @@ public class StateMachine : MonoBehaviour
         }
         _currentState = state;
         _currentState.Enter();
+        print(_currentState.ToString());
     }
 }

@@ -15,6 +15,7 @@ public class PlayerFallState : IState
     {
         if (Mathf.Abs(_player.Rigidbody.velocity.y) < 0.01f) { return _player.RunState; }
         else if (_player.LastGroundedTime > 0 && _player.LastJumpTime > 0) { return _player.JumpState; }
+        else if (Input.GetKeyDown(KeyCode.A) && _player.CanDash) { return _player.DashState; }
 
         return this;
     }

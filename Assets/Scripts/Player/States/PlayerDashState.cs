@@ -23,6 +23,7 @@ public class PlayerDashState : IState
 
     public void Update()
     {
+        _player.CanDash = false;
         _player.Rigidbody.velocity = _dashingDir.normalized * _player.DashingVelocity;
     }
 
@@ -33,6 +34,7 @@ public class PlayerDashState : IState
 
     public void Enter()
     {
+        _player.CanDash = false;
         _isDashing = true;
         _player.TrailRenderer.emitting = true;
         _dashingDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -52,5 +54,7 @@ public class PlayerDashState : IState
 
     public void Exit()
     {
+        _player.Rigidbody.velocity = Vector2.zero;
+        _player.Rigidbody.AddForce(_dashingDir.normalized * _player.DashingVelocity * 10);
     }
 }
