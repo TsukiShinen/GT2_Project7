@@ -19,13 +19,11 @@ public class SamuraiController : StateMachine
 
     public Vector3 BasePosition { get; private set; }
 
-    public SpriteRenderer SpriteRenderer { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
 
     public void Awake()
     {
-        SpriteRenderer = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
         Rigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponentInChildren<Animator>();
 

@@ -13,6 +13,8 @@ public class AutomateAwakeState : IState
 
     public IState HandleInput()
     {
+        if (DayNightManager.Instance.IsDay)
+            return _automate.NoneState;
         return _automate.RunState;
     }
 

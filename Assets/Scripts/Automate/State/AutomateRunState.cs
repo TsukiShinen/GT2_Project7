@@ -17,6 +17,8 @@ public class AutomateRunState : IState
             return _automate.ToSleepState;
         else if (Vector2.Distance(_automate.Detection.PlayerPosition, _automate.transform.position) <= _automate.AttackRange && _automate.AttackTimer <= 0)
             return _automate.AttackState;
+        else if (DayNightManager.Instance.IsDay)
+            return _automate.NoneState;
 
         return this;
     }
@@ -35,7 +37,7 @@ public class AutomateRunState : IState
             return;
         }
         Vector2 dir = new Vector2(_automate.Detection.PlayerPosition.x - _automate.transform.position.x, 0).normalized;
-        _automate.SpriteRenderer.flipX = dir == new Vector2(-1, 0);
+        _automate.transform.localScale = dir == new Vector2(-1, 0) ? new Vector3(-1, _automate.transform.localScale.y, _automate.transform.localScale.z) : new Vector3(1, _automate.transform.localScale.y, _automate.transform.localScale.z);
         _automate.Rigidbody.AddForce(dir * _automate.Speed * Time.deltaTime);
         _automate.Animator.SetBool("Move", true);
     }

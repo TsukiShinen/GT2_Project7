@@ -13,8 +13,11 @@ public class AutomateSleepState : IState
 
     public IState HandleInput()
     {
+        Debug.Log(DayNightManager.Instance.IsDay);
         if (_automate.Detection.IsPlayerDetected)
             return _automate.AwakeState;
+        else if (DayNightManager.Instance.IsDay)
+            return _automate.NoneState;
 
         return this;
     }

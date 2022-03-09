@@ -13,6 +13,8 @@ public class AutomateNoneState : IState
 
     public IState HandleInput()
     {
+        if (!DayNightManager.Instance.IsDay)
+            return _automate.SleepState;
         return this;
     }
 
@@ -28,7 +30,7 @@ public class AutomateNoneState : IState
 
     public void Enter()
     {
-
+        _automate.Animator.Play("IdleSleep");
     }
 
     public void Exit()
