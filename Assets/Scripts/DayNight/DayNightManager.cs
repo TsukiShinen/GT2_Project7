@@ -58,6 +58,5 @@ public class DayNightManager : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        ChangeTime();
     }
 }
