@@ -34,7 +34,7 @@ public class SamuraiRunState : IState
             return;
         }
         Vector2 dir = new Vector2(_samurai.Detection.PlayerPosition.x - _samurai.transform.position.x, 0).normalized;
-        _samurai.SpriteRenderer.flipX = dir == new Vector2(-1, 0);
+        _samurai.transform.localScale = dir == new Vector2(-1, 0) ? new Vector3(-1, _samurai.transform.localScale.y, _samurai.transform.localScale.z) : new Vector3(1, _samurai.transform.localScale.y, _samurai.transform.localScale.z);
         _samurai.Rigidbody.AddForce(dir * _samurai.Speed * Time.deltaTime);
         _samurai.Animator.SetBool("Run", true);
     }

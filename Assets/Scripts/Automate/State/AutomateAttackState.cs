@@ -17,6 +17,8 @@ public class AutomateAttackState : IState
     {
         if (!_isAttacking)
             return _automate.RunState;
+        else if (DayNightManager.Instance.IsDay)
+            return _automate.NoneState;
         return this;
     }
 
@@ -43,10 +45,10 @@ public class AutomateAttackState : IState
 
     private IEnumerator Attack()
     {
-        Vector2 dir = new Vector2(_automate.Detection.PlayerPosition.x - _automate.transform.position.x, 0).normalized;
-        _automate.SpriteRenderer.flipX = dir == new Vector2(-1, 0);
-        yield return new WaitForSeconds(0.3f);
+        _automate.AttackBox.SetActive(true);
         _automate.Animator.SetTrigger("Charge");
+        yield return new WaitForSeconds(0.6f);
+        _automate.AttackBox.SetActive(false);
         _isAttacking = false;
     }
 }

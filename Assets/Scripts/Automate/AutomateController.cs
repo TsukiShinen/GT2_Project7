@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class AutomateController : StateMachine
 {
-    public bool isDay;
-
     public float Speed;
     public float AttackRange;
     public float AttackCooldown = 1f;
     public float AttackTimer { get; set; }
 
     public DetectPlayer Detection;
+    public GameObject AttackBox;
 
     public AutomateSleepState SleepState { get; private set; }
     public AutomateAwakeState AwakeState { get; private set; }
@@ -22,13 +21,11 @@ public class AutomateController : StateMachine
 
     public Vector3 BasePosition { get; private set; }
 
-    public SpriteRenderer SpriteRenderer { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
     public Animator Animator { get; private set; }
 
     public void Awake()
     {
-        SpriteRenderer = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
         Rigidbody = GetComponent<Rigidbody2D>();
         Animator = GetComponentInChildren<Animator>();
 
@@ -54,10 +51,4 @@ public class AutomateController : StateMachine
     {
         _currentState = SleepState;
     }
-
-    /*void Update()
-    {
-        isDay = DayNightManager.Instance.IsDay;
-        _currentState = isDay ? SleepState : NoneState;
-    }*/
 }
