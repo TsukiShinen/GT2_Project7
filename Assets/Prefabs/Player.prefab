@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &816676406
 Transform:
   m_ObjectHideFlags: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   - {x: 0.38419425, y: -0.5, z: 0}
   m_ShapePathHash: -1792489257
   m_Mesh: {fileID: 0}
-  m_InstanceId: -127300
+  m_InstanceId: -1298
 --- !u!1 &9005378474559897691
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,8 +343,9 @@ MonoBehaviour:
     m_Bits: 64
   DashingVelocity: 18
   DashingTime: 0.15
-  MaxLife: 10
+  MaxLife: 100
   lifeBar: {fileID: 0}
+  CanDash: 0
 --- !u!96 &1110965846
 TrailRenderer:
   serializedVersion: 2
