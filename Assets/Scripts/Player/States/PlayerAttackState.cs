@@ -7,6 +7,7 @@ public class PlayerAttackState : IState
     Player _player;
 
     private bool _isAttacking;
+    private bool _doCombo;
 
     public PlayerAttackState(Player player)
     {
@@ -16,6 +17,7 @@ public class PlayerAttackState : IState
     public IState HandleInput()
     {
         if (!_isAttacking) { return _player.IdleState; }
+        else if (Input.GetButtonDown("Fire1")) { _doCombo = true; }
 
         return this;
     }
@@ -32,10 +34,12 @@ public class PlayerAttackState : IState
 
     public void Enter()
     {
-        _player.Rigidbody.velocity = Vector3.zero;
         _isAttacking = true;
+        _doCombo = false;
+        _player.Rigidbody.velocity = Vector3.zero;
         _player.Animator.SetTrigger("Attack");
         _player.StartCoroutine(Attack());
+        
     }
 
     private IEnumerator Attack()
@@ -44,6 +48,24 @@ public class PlayerAttackState : IState
         _player.AttackBox.enabled = true;
         yield return new WaitForSeconds(0.4f);
         _player.AttackBox.enabled = false;
+
+        if (_doCombo)
+        {
+            _player.Animator.SetTrigger("Combo");
+            _player.StartCoroutine(Combo());
+            _doCombo = false;
+        } else
+        {
+            _isAttacking = false;
+        }
+    }
+
+    private IEnumerator Combo()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _player.ComboBox.enabled = true;
+        yield return new WaitForSeconds(0.4f);
+        _player.ComboBox.enabled = false;
 
         _isAttacking = false;
     }

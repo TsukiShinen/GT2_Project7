@@ -18,6 +18,7 @@ public class PlayerIdleState : IState
         else if (Input.GetAxisRaw("Horizontal") != 0) { return _player.RunState; }
         else if (Input.GetKeyDown(KeyCode.A) && _player.CanDash) { return _player.DashState; }
         else if (Input.GetButtonDown("Fire1")) { return _player.AttackState; }
+        else if (Input.GetButtonDown("Fire2")) { return _player.DistanceAttackState; }
 
         return this;
     }

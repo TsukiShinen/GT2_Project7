@@ -19,6 +19,7 @@ public class PlayerJumpState : IState
             OnJumpOn();
         }
         else if (Input.GetKeyDown(KeyCode.A) && _player.CanDash) { return _player.DashState; }
+        else if (Input.GetButtonDown("Fire2")) { return _player.DistanceAttackState; }
 
         return this;
     }

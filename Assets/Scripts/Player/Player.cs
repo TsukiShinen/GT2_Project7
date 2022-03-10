@@ -39,10 +39,12 @@ public class Player : StateMachine
     public BoxCollider2D AttackBox;
     public BoxCollider2D ComboBox;
     public BoxCollider2D DistanceAttackBox;
+    public BoxCollider2D DistanceAttackBox2;
 
 
     [Header("Life")]
     public int MaxLife;
+    public int life { get; private set; }
     public Slider lifeBar;
 
     public float LastGroundedTime { get; set; }
@@ -62,7 +64,6 @@ public class Player : StateMachine
     public PlayerDistanceAttack DistanceAttackState { get; private set; }
 
     private Checkpoint lastCheckPoint;
-    public int life { get;private set; }
 
     public bool CanDash { get; set; }
 
