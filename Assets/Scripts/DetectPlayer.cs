@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
+
 public class DetectPlayer : MonoBehaviour
 {
     public bool IsPlayerDetected { get; private set; }
