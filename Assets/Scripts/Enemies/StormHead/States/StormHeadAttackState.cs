@@ -43,7 +43,7 @@ public class StormHeadAttackState : IState
     public IEnumerator Attack()
     {
         _stormHeadController.Animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(1.66f);
         _isAttacking = false;
     }
 
