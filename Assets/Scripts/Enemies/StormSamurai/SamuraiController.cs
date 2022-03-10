@@ -19,6 +19,11 @@ public class SamuraiController : Entity
 
     public Vector3 BasePosition { get; private set; }
 
+    public SpriteRenderer SpriteRenderer { get; set; }
+
+    public Material DayMaterial { get; set; }
+    public Material NightMaterial { get; set; }
+
     public override void Awake()
     {
         base.Awake();
@@ -29,6 +34,13 @@ public class SamuraiController : Entity
         RunState = new SamuraiRunState(this);
         ToIdleState = new SamuraiToIdleState(this);
         AttackState = new SamuraiAttackState(this);
+        
+        SpriteRenderer = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
+
+        DayMaterial = (Material)Resources.Load("Material/Sprite-Lit-Default", typeof(Material));
+        NightMaterial = (Material)Resources.Load("Material/SamuraiGlow", typeof(Material));
+        Debug.Log(DayMaterial.ToString());
+        Debug.Log(NightMaterial.ToString());
     }
 
     public override void FixedUpdate()
