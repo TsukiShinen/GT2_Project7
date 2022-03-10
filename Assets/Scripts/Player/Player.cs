@@ -36,10 +36,10 @@ public class Player : StateMachine
     [Header("Attack")]
     public float CooldownAttack;
     [Space(10)]
-    public BoxCollider2D AttackBox;
-    public BoxCollider2D ComboBox;
-    public BoxCollider2D DistanceAttackBox;
-    public BoxCollider2D DistanceAttackBox2;
+    public GameObject AttackBox;
+    public GameObject ComboBox;
+    public GameObject DistanceAttackBox;
+    public GameObject DistanceAttackBox2;
 
 
     [Header("Life")]

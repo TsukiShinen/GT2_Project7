@@ -42,13 +42,13 @@ public class PlayerDistanceAttack : IState
     private IEnumerator Attack()
     {
         yield return new WaitForSeconds(0.1f);
-        _player.DistanceAttackBox.enabled = true;
+        _player.DistanceAttackBox.SetActive(true);
         yield return new WaitForSeconds(0.2f);
-        _player.DistanceAttackBox2.enabled = true;
+        _player.DistanceAttackBox2.SetActive(true);
         yield return new WaitForSeconds(0.2f);
-        _player.DistanceAttackBox.enabled = false;
+        _player.DistanceAttackBox.SetActive(false);
         yield return new WaitForSeconds(0.1f);
-        _player.DistanceAttackBox2.enabled = false;
+        _player.DistanceAttackBox2.SetActive(false);
 
         _isAttacking = false;
     }

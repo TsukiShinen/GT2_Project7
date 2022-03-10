@@ -45,9 +45,9 @@ public class PlayerAttackState : IState
     private IEnumerator Attack()
     {
         yield return new WaitForSeconds(0.3f);
-        _player.AttackBox.enabled = true;
+        _player.AttackBox.SetActive(true);
         yield return new WaitForSeconds(0.4f);
-        _player.AttackBox.enabled = false;
+        _player.AttackBox.SetActive(false);
 
         if (_doCombo)
         {
@@ -63,9 +63,9 @@ public class PlayerAttackState : IState
     private IEnumerator Combo()
     {
         yield return new WaitForSeconds(0.1f);
-        _player.ComboBox.enabled = true;
+        _player.ComboBox.SetActive(true);
         yield return new WaitForSeconds(0.4f);
-        _player.ComboBox.enabled = false;
+        _player.ComboBox.SetActive(false);
 
         _isAttacking = false;
     }
