@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 766234524}
   - component: {fileID: 766234523}
+  - component: {fileID: 766234525}
   m_Layer: 0
   m_Name: DistanceBox
   m_TagString: Untagged
@@ -58,6 +59,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.8284874, y: 0.47344208}
   m_EdgeRadius: 0
+--- !u!114 &766234525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766234522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d60dd3d32ecbd4ab045298073e0882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockback: 500
 --- !u!1 &816676405
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1103279075}
   - component: {fileID: 1103279076}
+  - component: {fileID: 1103279077}
   m_Layer: 0
   m_Name: AttackBox
   m_TagString: Untagged
@@ -176,6 +191,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.6491108, y: 1.1272993}
   m_EdgeRadius: 0
+--- !u!114 &1103279077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103279074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d60dd3d32ecbd4ab045298073e0882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockback: 500
 --- !u!1 &1506275251
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1506275252}
   - component: {fileID: 1506275253}
+  - component: {fileID: 1506275254}
   m_Layer: 0
   m_Name: DistanceBox (1)
   m_TagString: Untagged
@@ -234,6 +263,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.8284874, y: 0.32529068}
   m_EdgeRadius: 0
+--- !u!114 &1506275254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506275251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d60dd3d32ecbd4ab045298073e0882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockback: 500
 --- !u!1 &1762796767
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,6 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1762796768}
   - component: {fileID: 1762796769}
+  - component: {fileID: 1762796770}
   m_Layer: 0
   m_Name: ComboBox
   m_TagString: Untagged
@@ -292,6 +335,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9268558, y: 1.7001486}
   m_EdgeRadius: 0
+--- !u!114 &1762796770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762796767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d60dd3d32ecbd4ab045298073e0882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _knockback: 500
 --- !u!1 &9005378474559897691
 GameObject:
   m_ObjectHideFlags: 0
