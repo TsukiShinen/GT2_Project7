@@ -12,6 +12,6 @@ public class HitEnemy : MonoBehaviour
         if (collision == null) { return; }
         if (!collision.CompareTag("Enemy")) { return; }
 
-        collision.GetComponent<Player>().Hit((collision.transform.position - transform.position).normalized * _knockback);
+        collision.GetComponent<Entity>().Hit((collision.transform.position - transform.position).normalized * _knockback);
     }
 }

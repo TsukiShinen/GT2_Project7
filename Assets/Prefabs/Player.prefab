@@ -558,6 +558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ba5b6588c0e949ad47cbabd2c2429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxLife: 100
+  lifeBar: {fileID: 0}
   MoveSpeed: 9
   Acceleration: 9
   Decceleration: 9
@@ -580,8 +582,6 @@ MonoBehaviour:
   ComboBox: {fileID: 1762796767}
   DistanceAttackBox: {fileID: 766234522}
   DistanceAttackBox2: {fileID: 1506275251}
-  MaxLife: 100
-  lifeBar: {fileID: 0}
 --- !u!96 &1110965846
 TrailRenderer:
   serializedVersion: 2

@@ -21,8 +21,9 @@ public class Entity : StateMachine
         Animator = GetComponentInChildren<Animator>();
     }
 
-    public void Hit(Vector2 knockBack)
+    public virtual void Hit(Vector2 knockBack)
     {
+        Animator.SetTrigger("Hit");
         life -= 1;
         if (lifeBar != null) { lifeBar.value = life; }
         StartCoroutine(GetHit(knockBack));

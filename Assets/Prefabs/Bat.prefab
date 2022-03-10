@@ -185,6 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7da8e077da122c9419a5a006b22d2ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxLife: 0
+  lifeBar: {fileID: 0}
   Speed: 50
   AttackRange: 1.5
   AttackCooldown: 1
