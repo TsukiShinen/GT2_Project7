@@ -33,6 +33,7 @@ public class PlayerDistanceAttack : IState
     public void Enter()
     {
         _isAttacking = true;
+        _player.CanAttackDistance = false;
         _player.Rigidbody.velocity = Vector3.zero;
         _player.Animator.SetTrigger("Distance");
         _player.StartCoroutine(Attack());

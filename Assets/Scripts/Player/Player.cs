@@ -66,6 +66,7 @@ public class Player : StateMachine
     private Checkpoint lastCheckPoint;
 
     public bool CanDash { get; set; }
+    public bool CanAttackDistance { get; set; }
 
     public Checkpoint LastCheckPoint
     {
@@ -90,6 +91,7 @@ public class Player : StateMachine
 
         life = MaxLife;
         CanDash = false;
+        CanAttackDistance = false;
     }
 
     void Start()
@@ -120,6 +122,7 @@ public class Player : StateMachine
         {
             LastGroundedTime = JumpCoyoteTime;
             CanDash = true;
+            CanAttackDistance = true;
         }
     }
 
