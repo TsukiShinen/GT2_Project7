@@ -29,12 +29,19 @@ public class Player : StateMachine
     [Space(10)]
     public LayerMask GroundLayer;
 
-    [Header("Check")]
+    [Header("Dash")]
     public float DashingVelocity;
     public float DashingTime;
 
+    [Header("Attack")]
+    public float CooldownAttack;
     [Space(10)]
-    [Space(10)]
+    public BoxCollider2D AttackBox;
+    public BoxCollider2D ComboBox;
+    public BoxCollider2D DistanceAttackBox;
+
+
+    [Header("Life")]
     public int MaxLife;
     public Slider lifeBar;
 
@@ -51,11 +58,13 @@ public class Player : StateMachine
     public PlayerJumpState JumpState { get; private set; }
     public PlayerFallState FallState { get; private set; }
     public PlayerDashState DashState { get; private set; }
+    public PlayerAttackState AttackState { get; private set; }
+    public PlayerDistanceAttack DistanceAttackState { get; private set; }
 
     private Checkpoint lastCheckPoint;
     public int life { get;private set; }
 
-    public bool CanDash;
+    public bool CanDash { get; set; }
 
     public Checkpoint LastCheckPoint
     {
@@ -75,6 +84,8 @@ public class Player : StateMachine
         JumpState = new PlayerJumpState(this);
         FallState = new PlayerFallState(this);
         DashState = new PlayerDashState(this);
+        AttackState = new PlayerAttackState(this);
+        DistanceAttackState = new PlayerDistanceAttack(this);
 
         life = MaxLife;
         CanDash = false;
