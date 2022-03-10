@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : StateMachine
+public class Player : Entity
 {
     [Header("Movement")]
     public float MoveSpeed;
@@ -41,18 +41,10 @@ public class Player : StateMachine
     public GameObject DistanceAttackBox;
     public GameObject DistanceAttackBox2;
 
-
-    [Header("Life")]
-    public int MaxLife;
-    public int life { get; private set; }
-    public Slider lifeBar;
-
     public float LastGroundedTime { get; set; }
     public float LastJumpTime { get; set; }
     public float GravityScale { get; private set; }
 
-    public Rigidbody2D Rigidbody { get; private set; }
-    public Animator Animator { get; private set; }
     public TrailRenderer TrailRenderer { get; private set; }
 
     public PlayerIdleState IdleState { get; private set; }
@@ -74,11 +66,10 @@ public class Player : StateMachine
         set => lastCheckPoint = value;
     }
 
-
-    void Awake()
+    public override void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody2D>();
-        Animator = GetComponentInChildren<Animator>();
+        base.Awake();
+
         TrailRenderer = GetComponentInChildren<TrailRenderer>();
 
         IdleState = new PlayerIdleState(this);
@@ -101,11 +92,13 @@ public class Player : StateMachine
 
         GravityScale = Rigidbody.gravityScale;
 
-        _currentState = IdleState;
+        ChangeState(IdleState);
     }
 
-    protected override void LogicUpdate()
+    public override void Update()
     {
+        base.Update();
+
         if (Input.GetKey(KeyCode.Space))
         {
             LastJumpTime = JumpBufferTime;
@@ -115,8 +108,10 @@ public class Player : StateMachine
         LastGroundedTime -= Time.deltaTime;
     }
 
-    protected override void PhysicsUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
+
         // Check
         if (Physics2D.OverlapBox(GroundCheckPoint.position, GroundCheckSize, 0, GroundLayer))
         {
@@ -132,20 +127,6 @@ public class Player : StateMachine
             transform.position = lastCheckPoint.transform.position;
         else
             GameManager.Instance.Reload();
-    }
-
-    public void Hit(Vector2 knockBack)
-    {
-        life -= 1;
-        lifeBar.value = life;
-        StartCoroutine(GetHit(knockBack));
-    }
-
-    private IEnumerator GetHit(Vector2 knockBack)
-    {
-        Rigidbody.AddForce(knockBack);
-        yield return new WaitForSeconds(0.5f);
-        Rigidbody.velocity = new Vector2(0f, Rigidbody.velocity.y);
     }
 
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatController : StateMachine
+public class BatController : Entity
 {
     public float Speed;
     public float AttackRange;
@@ -19,14 +19,9 @@ public class BatController : StateMachine
 
     public Vector3 BasePosition { get; private set; }
 
-    public Rigidbody2D Rigidbody { get; private set; }
-    public Animator Animator { get; private set; }
-
-    private void Awake()
+    public override void Awake()
     {
-        Rigidbody = GetComponentInChildren<Rigidbody2D>();
-        Animator = GetComponentInChildren<Animator>();
-
+        base.Awake();
         BasePosition = transform.position;
 
         IdleState = new BatIdleState(this);
@@ -35,8 +30,9 @@ public class BatController : StateMachine
         AttackState = new BatAttackState(this);
     }
 
-    protected override void LogicUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (AttackTimer > 0)
         {
             AttackTimer -= Time.deltaTime;
@@ -45,6 +41,6 @@ public class BatController : StateMachine
 
     void Start()
     {
-        _currentState = IdleState;
+        ChangeState(IdleState);
     }
 }

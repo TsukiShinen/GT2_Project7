@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SamuraiController : StateMachine
+public class SamuraiController : Entity
 {
     public float Speed;
     public float AttackRange;
@@ -19,13 +19,9 @@ public class SamuraiController : StateMachine
 
     public Vector3 BasePosition { get; private set; }
 
-    public Rigidbody2D Rigidbody { get; private set; }
-    public Animator Animator { get; private set; }
-
-    public void Awake()
+    public override void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody2D>();
-        Animator = GetComponentInChildren<Animator>();
+        base.Awake();
 
         BasePosition = transform.position;
 
@@ -35,8 +31,10 @@ public class SamuraiController : StateMachine
         AttackState = new SamuraiAttackState(this);
     }
 
-    protected override void LogicUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
+
         if (AttackTimer > 0)
         {
             AttackTimer -= Time.deltaTime;
@@ -45,6 +43,6 @@ public class SamuraiController : StateMachine
 
     void Start()
     {
-        _currentState = IdleState;
+        ChangeState(IdleState);
     }
 }

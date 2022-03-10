@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutomateController : StateMachine
+public class AutomateController : Entity
 {
     public float Speed;
     public float AttackRange;
@@ -21,14 +21,9 @@ public class AutomateController : StateMachine
 
     public Vector3 BasePosition { get; private set; }
 
-    public Rigidbody2D Rigidbody { get; private set; }
-    public Animator Animator { get; private set; }
-
-    public void Awake()
+    public override void Awake()
     {
-        Rigidbody = GetComponent<Rigidbody2D>();
-        Animator = GetComponentInChildren<Animator>();
-
+        base.Awake();
         BasePosition = transform.position;
 
         SleepState = new AutomateSleepState(this);
@@ -39,8 +34,9 @@ public class AutomateController : StateMachine
         NoneState = new AutomateNoneState(this);
     }
 
-    protected override void LogicUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         if (AttackTimer > 0)
         {
             AttackTimer -= Time.deltaTime;
@@ -49,6 +45,6 @@ public class AutomateController : StateMachine
 
     void Start()
     {
-        _currentState = SleepState;
+        ChangeState(SleepState);
     }
 }

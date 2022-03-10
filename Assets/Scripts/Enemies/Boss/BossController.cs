@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossController : StateMachine
+public class BossController : Entity
 {
     public float Speed = 100f;
     public float Range;
@@ -16,11 +16,9 @@ public class BossController : StateMachine
     public BossTargetState TargetState { get; private set; }
     public BossWanderState WanderState { get; private set; }
 
-    public Animator Animator { get; private set; }
-    public Rigidbody2D Rigidbody { get; private set; }
-
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
         Animator = GetComponentInChildren<Animator>();
         Rigidbody = GetComponent<Rigidbody2D>();
 

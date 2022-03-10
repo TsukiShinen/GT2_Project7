@@ -4,36 +4,22 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    protected IState _currentState;
+    private IState _currentState;
 
-    void Update()
+    public virtual void Update()
     {
-        LogicUpdate();
-
         if (_currentState == null) { return; }
         ChangeState(_currentState.HandleInput());
         _currentState.Update();
     }
 
-    protected virtual void LogicUpdate()
+    public virtual void FixedUpdate()
     {
-
-    }
-
-    private void FixedUpdate()
-    {
-        PhysicsUpdate();
-
         if (_currentState == null) { return; }
         _currentState.FixedUpdate();
     }
 
-    protected virtual void PhysicsUpdate()
-    {
-
-    }
-
-    public void ChangeState(IState state)
+    protected void ChangeState(IState state)
     {
         if (_currentState == state) { return; }
         if (_currentState != null)
