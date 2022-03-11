@@ -34,6 +34,9 @@ public class DayNightManager : MonoBehaviour
     public delegate void SetIntensity(float percentage);
     public event SetIntensity SetLightIntensity;
 
+    public delegate void SetDay(bool isDay);
+    public event SetDay EventDay;
+
     public bool IsDay;
 
     private void Start()
@@ -58,5 +61,7 @@ public class DayNightManager : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+        EventDay?.Invoke(IsDay);
+        ChangeTime();
     }
 }
