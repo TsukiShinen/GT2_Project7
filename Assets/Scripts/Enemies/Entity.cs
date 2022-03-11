@@ -21,6 +21,12 @@ public class Entity : StateMachine
         Animator = GetComponentInChildren<Animator>();
     }
 
+    public void Burn()
+    {
+        life -= 1;
+        if (lifeBar != null) { lifeBar.value = life; }
+    }
+
     public virtual void Hit(Vector2 knockBack)
     {
         Animator.SetTrigger("Hit");

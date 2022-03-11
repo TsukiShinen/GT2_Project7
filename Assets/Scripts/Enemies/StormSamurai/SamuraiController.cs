@@ -39,8 +39,6 @@ public class SamuraiController : Entity
 
         DayMaterial = (Material)Resources.Load("Material/Sprite-Lit-Default", typeof(Material));
         NightMaterial = (Material)Resources.Load("Material/SamuraiGlow", typeof(Material));
-        Debug.Log(DayMaterial.ToString());
-        Debug.Log(NightMaterial.ToString());
     }
 
     public override void FixedUpdate()
