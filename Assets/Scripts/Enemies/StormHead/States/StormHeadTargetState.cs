@@ -21,7 +21,7 @@ public class StormHeadTargetState : IState
 
     public void Enter()
     {
-        Debug.Log("Target");
+
     }
 
     public void Exit()

@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,6 +69,30 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -78,7 +102,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: heal charge up_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 637
+        width: 137
+        height: 91
+      alignment: 9
+      pivot: {x: 0.3106042, y: 0.15191449}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1462731d04d0d241a8b38afd8f9c80a
+      internalID: -1929568244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal charge up_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 546
+        width: 137
+        height: 91
+      alignment: 9
+      pivot: {x: 0.30937436, y: 0.15191449}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47aef7edfc882084e828516a90d98851
+      internalID: -2064415452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal charge up_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 455
+        width: 137
+        height: 91
+      alignment: 9
+      pivot: {x: 0.30937436, y: 0.15191415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c913553d0df89d469b108c3e890631f
+      internalID: -1126844936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal charge up_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 364
+        width: 137
+        height: 91
+      alignment: 9
+      pivot: {x: 0.304455, y: 0.14450811}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af59108e5b0aab48ac20814bb0e55fb
+      internalID: 1888499762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal charge up_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 273
+        width: 137
+        height: 91
+      alignment: 9
+      pivot: {x: 0.30937436, y: 0.15191415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d073b989954c3294db33fbc6730201d6
+      internalID: 1278797598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal charge up_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 182
+        width: 137
+        height: 91
+      alignment: 9
+      pivot: {x: 0.30937436, y: 0.15006231}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abb9ec64a6a3e05409d0fd43b37a5a5a
+      internalID: -512551757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal charge up_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 91
+        width: 137
+        height: 91
+      alignment: 9
+      pivot: {x: 0.3081445, y: 0.15376534}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91fd9cc2676c1864488c11013f3fdb3d
+      internalID: -1575358844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: heal charge up_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 137
+        height: 91
+      alignment: 9
+      pivot: {x: 0.30937436, y: 0.1519138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e9f1643cf722d41bfeb6ea8f67fe5d
+      internalID: -1270516134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +281,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      heal charge up_2: -1126844936
+      heal charge up_7: -1270516134
+      heal charge up_5: -512551757
+      heal charge up_6: -1575358844
+      heal charge up_0: -1929568244
+      heal charge up_4: 1278797598
+      heal charge up_3: 1888499762
+      heal charge up_1: -2064415452
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
