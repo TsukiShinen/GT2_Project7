@@ -22,7 +22,10 @@ public class SamuraiRunState : IState
 
     public void Update()
     {
-
+        if (DayNightManager.Instance.IsDay)
+            _samurai.SpriteRenderer.material = _samurai.DayMaterial;
+        else
+            _samurai.SpriteRenderer.material = _samurai.NightMaterial;
     }
 
     public void FixedUpdate()

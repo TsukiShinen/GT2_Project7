@@ -21,7 +21,7 @@ public class StormHeadTargetState : IState
 
     public void Enter()
     {
-        Debug.Log("Target");
+
     }
 
     public void Exit()
@@ -35,8 +35,6 @@ public class StormHeadTargetState : IState
 
         Vector2 dir = ((_stormHeadController.playerDetection.PlayerPosition - _stormHeadController.transform.position) * new Vector2(1, 0)).normalized;
         _stormHeadController.Rigidbody.AddForce(dir * _stormHeadController.Speed * Time.fixedDeltaTime);
-
-        Debug.Log(dir * _stormHeadController.Speed * Time.fixedDeltaTime);
 
         if (Mathf.Sign(_stormHeadController.Rigidbody.velocity.x) != Mathf.Sign(_stormHeadController.transform.localScale.x) && _stormHeadController.Rigidbody.velocity.x != 0)
         {

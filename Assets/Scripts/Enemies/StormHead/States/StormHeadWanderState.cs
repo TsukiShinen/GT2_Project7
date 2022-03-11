@@ -20,7 +20,7 @@ public class StormHeadWanderState : IState
 
     public void Enter()
     {
-        Debug.Log("Wander");
+
     }
 
     public void Exit()

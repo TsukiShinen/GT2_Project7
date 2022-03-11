@@ -35,7 +35,6 @@ public class StormHeadAttackState : IState
 
     public void Enter()
     {
-        Debug.Log("Attack");
         _isAttacking = true;
         _stormHeadController.StartCoroutine(Attack());
     }
@@ -43,7 +42,7 @@ public class StormHeadAttackState : IState
     public IEnumerator Attack()
     {
         _stormHeadController.Animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(_stormHeadController.Animator.GetCurrentAnimatorStateInfo(0).length * _stormHeadController.Animator.GetCurrentAnimatorStateInfo(0).speed);
         _isAttacking = false;
     }
 
