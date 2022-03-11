@@ -112,7 +112,7 @@ TextureImporter:
         width: 137
         height: 91
       alignment: 9
-      pivot: {x: 0.3106042, y: 0.15191449}
+      pivot: {x: 0.31, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,7 +133,7 @@ TextureImporter:
         width: 137
         height: 91
       alignment: 9
-      pivot: {x: 0.30937436, y: 0.15191449}
+      pivot: {x: 0.31, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,7 +154,7 @@ TextureImporter:
         width: 137
         height: 91
       alignment: 9
-      pivot: {x: 0.30937436, y: 0.15191415}
+      pivot: {x: 0.31, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,7 +175,7 @@ TextureImporter:
         width: 137
         height: 91
       alignment: 9
-      pivot: {x: 0.304455, y: 0.14450811}
+      pivot: {x: 0.31, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,7 +196,7 @@ TextureImporter:
         width: 137
         height: 91
       alignment: 9
-      pivot: {x: 0.30937436, y: 0.15191415}
+      pivot: {x: 0.31, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,7 +217,7 @@ TextureImporter:
         width: 137
         height: 91
       alignment: 9
-      pivot: {x: 0.30937436, y: 0.15006231}
+      pivot: {x: 0.31, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,7 +238,7 @@ TextureImporter:
         width: 137
         height: 91
       alignment: 9
-      pivot: {x: 0.3081445, y: 0.15376534}
+      pivot: {x: 0.31, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,7 +259,7 @@ TextureImporter:
         width: 137
         height: 91
       alignment: 9
-      pivot: {x: 0.30937436, y: 0.1519138}
+      pivot: {x: 0.31, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

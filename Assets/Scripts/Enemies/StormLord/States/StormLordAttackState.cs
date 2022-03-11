@@ -43,7 +43,22 @@ public class StormLordAttackState : IState
     {
         string name = Random.Range(0, 3) == 0 ? "Attack1" : "Attack2";
         _stormLordController.Animator.SetTrigger(name);
-        yield return new WaitForSeconds(_stormLordController.Animator.GetCurrentAnimatorStateInfo(0).length * _stormLordController.Animator.GetCurrentAnimatorStateInfo(0).speed);
+        if (name == "Attack1")
+        {
+            yield return new WaitForSeconds(1.25f);
+            _stormLordController.FirstAttackBox.SetActive(true);
+            yield return new WaitForSeconds(0.333f);
+            _stormLordController.FirstAttackBox.SetActive(false);
+            yield return new WaitForSeconds(0.25f);
+        }
+        else if(name == "Attack2")
+        {
+            yield return new WaitForSeconds(0.5f);
+            _stormLordController.SecondAttackBox.SetActive(true);
+            yield return new WaitForSeconds(0.1666f);
+            _stormLordController.SecondAttackBox.SetActive(false);
+            yield return new WaitForSeconds(0.08333f);
+        }
         _isAttacking = false;
     }
 

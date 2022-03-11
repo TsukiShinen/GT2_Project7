@@ -42,7 +42,14 @@ public class StormHeadAttackState : IState
     public IEnumerator Attack()
     {
         _stormHeadController.Animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(_stormHeadController.Animator.GetCurrentAnimatorStateInfo(0).length * _stormHeadController.Animator.GetCurrentAnimatorStateInfo(0).speed);
+        yield return new WaitForSeconds(0.5f);
+        _stormHeadController.FirstAttackBox.SetActive(true);
+        yield return new WaitForSeconds(0.33333f);
+        _stormHeadController.FirstAttackBox.SetActive(false);
+        _stormHeadController.SecondAttackBox.SetActive(true);
+        yield return new WaitForSeconds(0.33333f);
+        _stormHeadController.SecondAttackBox.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
         _isAttacking = false;
     }
 

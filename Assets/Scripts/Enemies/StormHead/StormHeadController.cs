@@ -9,6 +9,9 @@ public class StormHeadController : StateMachine
 
     public DetectPlayer playerDetection;
 
+    public GameObject FirstAttackBox;
+    public GameObject SecondAttackBox;
+
     public StormHeadTargetState TargetState { get; private set; }
     public StormHeadWanderState WanderState { get; private set; }
     public StormHeadAttackState AttackState { get; private set; }
