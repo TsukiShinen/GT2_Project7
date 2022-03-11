@@ -10,7 +10,8 @@ public class SamuraiController : Entity
     public float AttackTimer { get; set; }
 
     public DetectPlayer Detection;
-    public GameObject AttackBox;
+    public GameObject FirstAttackBox;
+    public GameObject SecondAttackBox;
 
     public SamuraiIdleState IdleState { get; private set; }
     public SamuraiRunState RunState { get; private set; }
@@ -54,5 +55,11 @@ public class SamuraiController : Entity
     void Start()
     {
         ChangeState(IdleState);
+        DayNightManager.Instance.SetLightIntensity += UpdateMaterial;
+    }
+
+    private void UpdateMaterial(float pr)
+    {
+        SpriteRenderer.material.SetFloat("_Intensity", 2 - pr * 2);
     }
 }

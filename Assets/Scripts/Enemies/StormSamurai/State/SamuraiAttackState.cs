@@ -45,11 +45,12 @@ public class SamuraiAttackState : IState
     private IEnumerator Attack()
     {
         string name = Random.Range(0, 2) == 0 ? "Attack1" : "Attack2";
+        GameObject attack = name == "Attack1" ? _samurai.FirstAttackBox : _samurai.SecondAttackBox;
         yield return new WaitForSeconds(0.3f);
-        _samurai.AttackBox.SetActive(true);
+        attack.SetActive(true);
         _samurai.Animator.SetTrigger(name);
         yield return new WaitForSeconds(0.6f);
-        _samurai.AttackBox.SetActive(false);
+        attack.SetActive(false);
         _isAttacking = false;
     }
 }
