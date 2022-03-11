@@ -21,10 +21,7 @@ public class SamuraiIdleState : IState
 
     public void Update()
     {
-        if (DayNightManager.Instance.IsDay)
-            _samurai.SpriteRenderer.material = _samurai.DayMaterial;
-        else
-            _samurai.SpriteRenderer.material = _samurai.NightMaterial;
+        
     }
 
     public void FixedUpdate()
@@ -34,11 +31,26 @@ public class SamuraiIdleState : IState
 
     public void Enter()
     {
-
+        _samurai.StartCoroutine(UpdateMaterial());
     }
 
     public void Exit()
     {
 
+    }
+
+    private IEnumerator UpdateMaterial()
+    {
+        float duration = 0f;
+        while (duration <= 2f)
+        {
+            if (DayNightManager.Instance.IsDay && _samurai.SpriteRenderer.material.GetFloat("_Intensity") > 0)
+            _samurai.SpriteRenderer.material.SetFloat("_Intensity", duration);
+            else if (!DayNightManager.Instance.IsDay && _samurai.SpriteRenderer.material.GetFloat("_Intensity") < 2)
+                _samurai.SpriteRenderer.material.SetFloat("_Intensity", duration);
+            duration += Time.deltaTime;
+            yield return null;
+        }
+        _samurai.StartCoroutine(UpdateMaterial());
     }
 }
