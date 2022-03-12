@@ -25,10 +25,14 @@ public class BossController : Entity
         AttackState = new BossAttackState(this);
         TargetState = new BossTargetState(this);
         WanderState = new BossWanderState(this);
+
+        life = MaxLife;
     }
 
     private void Start()
     {
+        lifeBar.maxValue = MaxLife;
+        lifeBar.value = life;
         ChangeState(WanderState);
     }
 }

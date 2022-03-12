@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    private IState _currentState;
+    public IState _currentState;
 
     public virtual void Update()
     {

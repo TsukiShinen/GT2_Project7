@@ -51,4 +51,10 @@ public class AutomateController : Entity
         lifeBar.value = life;
         ChangeState(SleepState);
     }
+
+    public override void Update()
+    {
+        base.Update();
+        lifeBar.gameObject.SetActive(_currentState == SleepState || _currentState == NoneState ? false : true);
+    }
 }

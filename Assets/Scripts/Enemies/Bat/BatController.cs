@@ -28,6 +28,8 @@ public class BatController : Entity
         FlyState = new BatFlyState(this);
         ToIdleState = new BatToIdleState(this);
         AttackState = new BatAttackState(this);
+
+        life = MaxLife;
     }
 
     public override void FixedUpdate()
@@ -41,6 +43,14 @@ public class BatController : Entity
 
     void Start()
     {
+        lifeBar.maxValue = MaxLife;
+        lifeBar.value = life;
         ChangeState(IdleState);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+        lifeBar.gameObject.SetActive(_currentState == IdleState ? false : true);
     }
 }
