@@ -32,6 +32,8 @@ public class AutomateController : Entity
         ToSleepState = new AutomateToSleepState(this);
         AttackState = new AutomateAttackState(this);
         NoneState = new AutomateNoneState(this);
+
+        life = MaxLife;
     }
 
     public override void FixedUpdate()
@@ -45,6 +47,8 @@ public class AutomateController : Entity
 
     void Start()
     {
+        lifeBar.maxValue = MaxLife;
+        lifeBar.value = life;
         ChangeState(SleepState);
     }
 }
