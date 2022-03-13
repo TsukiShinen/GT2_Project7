@@ -9,7 +9,7 @@ public class HitEnemy : MonoBehaviour
     [SerializeField]
     private int _additionalDamage = 0;
 
-    public int damage = 0;
+    public int damage { get; set; }
 
     private void Awake()
     {
