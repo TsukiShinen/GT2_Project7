@@ -614,7 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ba5b6588c0e949ad47cbabd2c2429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLife: 100
+  EntityData: {fileID: 11400000, guid: 8e8077aeb02bab94dbdf21f74681367e, type: 2}
   lifeBar: {fileID: 0}
   MoveSpeed: 9
   Acceleration: 9
