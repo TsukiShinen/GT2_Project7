@@ -385,7 +385,7 @@ MonoBehaviour:
   AttackCooldown: 1.5
   Detection: {fileID: 4552482860803696230}
   AttackBox: {fileID: 285417857996794250}
-  Prefab: {fileID: 2295977275698638469}
+  Prefab: {fileID: 4190998850946818172, guid: 509aedd9c2100bc40829cb048dbc7625, type: 3}
 --- !u!1 &4790275134527955055
 GameObject:
   m_ObjectHideFlags: 0

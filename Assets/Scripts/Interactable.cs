@@ -67,11 +67,13 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _canvas.SetActive(true);
+        if (collision.CompareTag("Player"))
+            _canvas.SetActive(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _canvas.SetActive(false);
+        if (collision.CompareTag("Player"))
+            _canvas.SetActive(false);
     }
 }
