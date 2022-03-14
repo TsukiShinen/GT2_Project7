@@ -22,9 +22,6 @@ public class SamuraiController : Entity
 
     public SpriteRenderer SpriteRenderer { get; set; }
 
-    public Material DayMaterial { get; set; }
-    public Material NightMaterial { get; set; }
-
     public override void Awake()
     {
         base.Awake();
@@ -38,11 +35,10 @@ public class SamuraiController : Entity
         
         SpriteRenderer = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
 
-        DayMaterial = (Material)Resources.Load("Material/Sprite-Lit-Default", typeof(Material));
-        NightMaterial = (Material)Resources.Load("Material/SamuraiGlow", typeof(Material));
-
         FirstAttackBox.GetComponent<HitPlayer>().damage += Attack;
         SecondAttackBox.GetComponent<HitPlayer>().damage += Attack;
+
+        Life = MaxLife;
     }
 
     public override void FixedUpdate()
@@ -59,6 +55,8 @@ public class SamuraiController : Entity
     {
         ChangeState(IdleState);
         DayNightManager.Instance.SetLightIntensity += UpdateMaterial;
+        lifeBar.maxValue = MaxLife;
+        lifeBar.value = Life;
     }
 
     private void UpdateMaterial(float pr)

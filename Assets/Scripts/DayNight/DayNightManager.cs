@@ -42,7 +42,6 @@ public class DayNightManager : MonoBehaviour
     private void Start()
     {
         _currentCurve = _dayCurve;
-        ChangeTime();
     }
 
     public void ChangeTime()
@@ -62,6 +61,5 @@ public class DayNightManager : MonoBehaviour
             yield return null;
         }
         EventDay?.Invoke(IsDay);
-        ChangeTime();
     }
 }
