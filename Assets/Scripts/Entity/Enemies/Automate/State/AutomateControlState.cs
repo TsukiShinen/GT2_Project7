@@ -2,28 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutomateSleepState : IState
+public class AutomateControlState : IState
 {
     private AutomateController _automate;
 
-    public AutomateSleepState(AutomateController automate)
+    public AutomateControlState(AutomateController automate)
     {
         _automate = automate;
     }
 
     public IState HandleInput()
     {
-        if (_automate.Detection.IsPlayerDetected)
-            return _automate.AwakeState;
-        else if (DayNightManager.Instance.IsDay)
-            return _automate.NoneState;
-
         return this;
     }
 
     public void Update()
     {
-
+        _automate.transform.position = _automate.transform.Find("Player").position;
     }
 
     public void FixedUpdate()
@@ -33,7 +28,7 @@ public class AutomateSleepState : IState
 
     public void Enter()
     {
-        
+
     }
 
     public void Exit()

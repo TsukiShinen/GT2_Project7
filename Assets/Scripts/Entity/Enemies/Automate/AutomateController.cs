@@ -21,6 +21,9 @@ public class AutomateController : Entity
 
     public Vector3 BasePosition { get; private set; }
 
+    public GameObject Prefab;
+    public bool IsClone = false;
+
     public override void Awake()
     {
         base.Awake();
@@ -34,6 +37,8 @@ public class AutomateController : Entity
         NoneState = new AutomateNoneState(this);
 
         AttackBox.GetComponent<HitPlayer>().damage += Attack;
+
+        Life = MaxLife;
     }
 
     public override void FixedUpdate()
@@ -47,6 +52,25 @@ public class AutomateController : Entity
 
     void Start()
     {
-        ChangeState(SleepState);
+        if (!IsClone)
+        {
+            ChangeState(SleepState);
+            lifeBar.maxValue = MaxLife;
+            lifeBar.value = Life;
+            //lifeBar.gameObject.SetActive(_currentState == SleepState || _currentState == NoneState ? false : true);
+        }
+    }
+
+    public override void Hit(Vector2 knockBack, int damage)
+    {
+        if (!IsClone)
+            base.Hit(knockBack, damage);
+        if (!IsAlive && !IsClone)
+        {
+            GameObject clone = Instantiate(Prefab, transform.position, Quaternion.identity);
+            clone.GetComponent<Entity>().lifeBar.gameObject.SetActive(false);
+            clone.GetComponent<AutomateController>().IsClone = true;
+            Destroy(gameObject);
+        }
     }
 }

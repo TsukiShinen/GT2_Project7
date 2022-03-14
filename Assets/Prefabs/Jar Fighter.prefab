@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _knockback: 500
+  _additionalDamage: 0
 --- !u!1 &478506750912990518
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +385,7 @@ MonoBehaviour:
   AttackCooldown: 1.5
   Detection: {fileID: 4552482860803696230}
   AttackBox: {fileID: 285417857996794250}
+  Prefab: {fileID: 2295977275698638469}
 --- !u!1 &4790275134527955055
 GameObject:
   m_ObjectHideFlags: 0
