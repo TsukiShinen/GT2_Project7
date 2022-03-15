@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class Entity : StateMachine
 {
-    [Header("Data")]
+    [Header("Entity")]
     [SerializeField]
     private EntityData EntityData;
     public Slider lifeBar;
+    public ParticleSystem HurtParticle;
+
     public int MaxLife { get; private set; }
     public int Attack { get; private set; }
     public int Defense { get; private set; }
@@ -65,6 +67,7 @@ public class Entity : StateMachine
     private IEnumerator GetHit(Vector2 knockBack)
     {
         Rigidbody.AddForce(knockBack);
+        if (HurtParticle != null) { HurtParticle.Play(); }
         yield return new WaitForSeconds(0.5f);
         Rigidbody.velocity = new Vector2(0f, Rigidbody.velocity.y);
     }
