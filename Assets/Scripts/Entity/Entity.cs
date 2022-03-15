@@ -42,10 +42,24 @@ public class Entity : StateMachine
     public virtual void Hit(Vector2 knockBack, int damage)
     {
         Life -= damage - Defense;
-        if (lifeBar != null) { lifeBar.value = Life; }
+        if (lifeBar != null) { StartCoroutine(DecreaseLifeBar(Life)); }
         string animToPlayer = IsAlive ? "Hit" : "Die";
         Animator.SetTrigger(animToPlayer);
         StartCoroutine(GetHit(knockBack));
+    }
+
+    private IEnumerator DecreaseLifeBar(float newValue)
+    {
+        while (lifeBar.value != newValue)
+        {
+            lifeBar.value -= Time.deltaTime * 4;
+            if (lifeBar.value < newValue)
+            {
+                lifeBar.value = newValue;
+            }
+
+            yield return null;
+        }
     }
 
     private IEnumerator GetHit(Vector2 knockBack)
