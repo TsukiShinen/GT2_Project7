@@ -41,9 +41,10 @@ public class Entity : StateMachine
 
     public virtual void Hit(Vector2 knockBack, int damage)
     {
-        Animator.SetTrigger("Hit");
         Life -= damage - Defense;
         if (lifeBar != null) { lifeBar.value = Life; }
+        string animToPlayer = IsAlive ? "Hit" : "Die";
+        Animator.SetTrigger(animToPlayer);
         StartCoroutine(GetHit(knockBack));
     }
 
