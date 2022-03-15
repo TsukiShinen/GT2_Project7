@@ -45,4 +45,20 @@ public class BatController : Entity
     {
         ChangeState(IdleState);
     }
+
+    public override void Hit(Vector2 knockBack, int damage)
+    {
+        base.Hit(knockBack, damage);
+
+        if (!IsAlive) { StartCoroutine(Death()); }
+    }
+
+    private IEnumerator Death()
+    {
+        _currentState = null;
+        Rigidbody.velocity = Vector3.zero;
+        lifeBar.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
 }

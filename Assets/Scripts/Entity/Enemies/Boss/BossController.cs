@@ -14,7 +14,6 @@ public class BossController : Entity
 
     public Transform GroundCheckPos;
     public LayerMask GroundCheckMask;
-    public BoxCollider2D MyCollider { get; private set; }
 
     public BossAttackState AttackState { get;private set; }
     public BossTargetState TargetState { get; private set; }
@@ -48,6 +47,8 @@ public class BossController : Entity
     private IEnumerator Death()
     {
         _currentState = null;
+        Rigidbody.velocity = Vector3.zero;
+        lifeBar.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
