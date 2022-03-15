@@ -33,7 +33,6 @@ public class BossWanderState : IState
 
     private IEnumerator Flip()
     {
-        Debug.Log("Flip");
         _canMove = false;
         _boss.Speed *= -1;
         _boss.Rigidbody.velocity = Vector3.zero;

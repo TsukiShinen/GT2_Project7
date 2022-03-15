@@ -32,6 +32,9 @@ public class Player : Entity
     [Header("Dash")]
     public float DashingVelocity;
     public float DashingTime;
+    public float ShakeTime = 0.2f;
+    public float ShakeAmplitue = 5f;
+    public float ShakeFrequency = 2f;
 
     [Header("Attack")]
     public float CooldownAttack;

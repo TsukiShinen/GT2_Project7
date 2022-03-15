@@ -43,6 +43,7 @@ public class PlayerDashState : IState
             _dashingDir = new Vector2(_player.transform.localScale.x, 0);
         }
         _player.StartCoroutine(StopDashing());
+        _player.StartCoroutine(GameManager.Instance.ShakeCamera(_player.ShakeTime, _player.ShakeAmplitue, _player.ShakeFrequency));
     }
     
     private IEnumerator StopDashing()

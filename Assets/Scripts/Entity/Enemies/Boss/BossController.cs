@@ -14,6 +14,7 @@ public class BossController : Entity
 
     public Transform GroundCheckPos;
     public LayerMask GroundCheckMask;
+    public BoxCollider2D MyCollider { get; private set; }
 
     public BossAttackState AttackState { get;private set; }
     public BossTargetState TargetState { get; private set; }
