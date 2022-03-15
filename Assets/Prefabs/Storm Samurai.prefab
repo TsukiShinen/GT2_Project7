@@ -97,12 +97,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityData: {fileID: 11400000, guid: 259a2e60d62c6ed46823173f74466156, type: 2}
   lifeBar: {fileID: 3173288682389618106}
-  Speed: 250
-  AttackRange: 1
-  AttackCooldown: 1.5
+  HurtParticle: {fileID: 0}
+  Speed: 450
+  Range: 2
   Detection: {fileID: 376773859290212778}
   FirstAttackBox: {fileID: 339481210946489750}
   SecondAttackBox: {fileID: 1609614301841912284}
+  GroundCheckPos: {fileID: 1290861776538714631}
+  GroundCheckMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &339481210946489750
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,8 +210,41 @@ Transform:
   m_Children:
   - {fileID: 1408817279528654439}
   - {fileID: 6159727867710845913}
+  - {fileID: 1290861776538714631}
+  - {fileID: 8599323987131728368}
   m_Father: {fileID: 8496989715263050078}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &930060546630069143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1290861776538714631}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1290861776538714631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930060546630069143}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -572.874, y: -147.845, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5014144217166510102}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &932103145380815050
 GameObject:
@@ -449,8 +486,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8496989715263050078}
-  m_RootOrder: 2
+  m_Father: {fileID: 5014144217166510102}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &7686491814728113223
 BoxCollider2D:
@@ -520,7 +557,6 @@ Transform:
   m_Children:
   - {fileID: 1508717721510733706}
   - {fileID: 5014144217166510102}
-  - {fileID: 8599323987131728368}
   - {fileID: 3169775040974793927}
   m_Father: {fileID: 1313662581586769755}
   m_RootOrder: 0
@@ -555,7 +591,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8496989715263050078}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4000521379140942303
 MonoBehaviour:

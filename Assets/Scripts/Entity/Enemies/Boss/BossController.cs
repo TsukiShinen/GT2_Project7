@@ -14,7 +14,6 @@ public class BossController : Entity
 
     public Transform GroundCheckPos;
     public LayerMask GroundCheckMask;
-    public BoxCollider2D MyCollider { get; private set; }
 
     public BossAttackState AttackState { get;private set; }
     public BossTargetState TargetState { get; private set; }
@@ -23,7 +22,6 @@ public class BossController : Entity
     public override void Awake()
     {
         base.Awake();
-        MyCollider = GetComponent<BoxCollider2D>();
 
         AttackState = new BossAttackState(this);
         TargetState = new BossTargetState(this);
