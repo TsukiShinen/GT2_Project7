@@ -79,6 +79,7 @@ public class JarController : Entity
             Rigidbody.gravityScale = 0;
             transform.GetChild(2).gameObject.SetActive(false);
             transform.gameObject.tag = "Untagged";
+            Animator.SetBool("Control", false);
             ChangeState(null);
         }
     }
@@ -104,6 +105,7 @@ public class JarController : Entity
         GravityScale = Rigidbody.gravityScale;
         transform.GetChild(2).gameObject.SetActive(true);
         transform.gameObject.tag = "Enemy";
+        Animator.SetBool("Control", true);
         ChangeState(IdleState);
     }
 

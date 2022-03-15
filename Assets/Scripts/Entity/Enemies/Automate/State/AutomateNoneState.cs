@@ -14,7 +14,7 @@ public class AutomateNoneState : IState
     public IState HandleInput()
     {
         if (!DayNightManager.Instance.IsDay)
-            return _automate.SleepState;
+            return _automate.WanderState;
         return this;
     }
 

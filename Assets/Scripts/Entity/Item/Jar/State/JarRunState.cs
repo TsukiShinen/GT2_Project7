@@ -69,11 +69,11 @@ public class JarRunState : IState
 
     public void Enter()
     {
-        _jar.Animator.SetBool("Move", true);
+        _jar.Animator.SetBool("Run", true);
     }
 
     public void Exit()
     {
-        _jar.Animator.SetBool("Move", false);
+        _jar.Animator.SetBool("Run", false);
     }
 }
