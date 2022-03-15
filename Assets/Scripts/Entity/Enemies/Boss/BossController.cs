@@ -37,4 +37,18 @@ public class BossController : Entity
 
         ChangeState(WanderState);
     }
+
+    public override void Hit(Vector2 knockBack, int damage)
+    {
+        base.Hit(knockBack, damage);
+
+        if (!IsAlive) { StartCoroutine(Death()); }
+    }
+
+    private IEnumerator Death()
+    {
+        _currentState = null;
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
 }
