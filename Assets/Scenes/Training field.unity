@@ -221,13 +221,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112b7acf6f9ed774da7a750fd3267723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxLife: 0
+  EntityData: {fileID: 0}
   lifeBar: {fileID: 0}
+  HurtParticle: {fileID: 0}
   Speed: 0
   AttackRange: 0
   AttackCooldown: 1
   Detection: {fileID: 2060353746}
   AttackBox: {fileID: 0}
+  Prefab: {fileID: 0}
 --- !u!1001 &48158508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2309,7 +2311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3138713295247373291, guid: 37af95591cc10fa4698b93633e00f26b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8596741083981284952, guid: 37af95591cc10fa4698b93633e00f26b, type: 3}
       propertyPath: m_RootOrder
@@ -2518,7 +2520,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.6985295, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3902,6 +3904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StormLord
       objectReference: {fileID: 0}
+    - target: {fileID: 1888936900100241540, guid: d37de530b8564be43a4792a17dcaff9e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1888936900100241543, guid: d37de530b8564be43a4792a17dcaff9e, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3946,6 +3952,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7275268670774131694, guid: d37de530b8564be43a4792a17dcaff9e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7275268670774131694, guid: d37de530b8564be43a4792a17dcaff9e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d37de530b8564be43a4792a17dcaff9e, type: 3}
 --- !u!1001 &7243161955653873922
@@ -3955,6 +3969,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1782798589}
     m_Modifications:
+    - target: {fileID: 7120585536174653139, guid: b3ea5abe10cc6554bb1d62115ca860b8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120585536174653139, guid: b3ea5abe10cc6554bb1d62115ca860b8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7243161956776374204, guid: b3ea5abe10cc6554bb1d62115ca860b8, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4002,6 +4024,10 @@ PrefabInstance:
     - target: {fileID: 7243161956776374207, guid: b3ea5abe10cc6554bb1d62115ca860b8, type: 3}
       propertyPath: m_Name
       value: StormHead
+      objectReference: {fileID: 0}
+    - target: {fileID: 7243161956776374207, guid: b3ea5abe10cc6554bb1d62115ca860b8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3ea5abe10cc6554bb1d62115ca860b8, type: 3}

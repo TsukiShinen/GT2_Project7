@@ -37,7 +37,7 @@ public class AutomateRunState : IState
             return;
         }
         Vector2 dir = new Vector2(_automate.Detection.PlayerPosition.x - _automate.transform.position.x, 0).normalized;
-        _automate.transform.localScale = dir == new Vector2(-1, 0) ? new Vector3(-1, _automate.transform.localScale.y, _automate.transform.localScale.z) : new Vector3(1, _automate.transform.localScale.y, _automate.transform.localScale.z);
+        _automate.transform.GetChild(0).localScale = dir == new Vector2(-1, 0) ? new Vector3(-1, _automate.transform.GetChild(0).localScale.y, _automate.transform.GetChild(0).localScale.z) : new Vector3(1, _automate.transform.GetChild(0).localScale.y, _automate.transform.GetChild(0).localScale.z);
         _automate.Rigidbody.AddForce(dir * _automate.Speed * Time.deltaTime);
         _automate.Animator.SetBool("Move", true);
     }

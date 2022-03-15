@@ -31,9 +31,9 @@ public class BossTargetState : IState
         Vector2 dir = ((_boss.playerDetection.PlayerPosition - _boss.transform.position) * new Vector2(1, 0)).normalized;
         _boss.Rigidbody.AddForce(dir * _boss.Speed * Time.fixedDeltaTime);
 
-        if (Mathf.Sign(_boss.Rigidbody.velocity.x) != Mathf.Sign(_boss.transform.localScale.x) && _boss.Rigidbody.velocity.x != 0)
+        if (Mathf.Sign(_boss.Rigidbody.velocity.x) != Mathf.Sign(_boss.transform.GetChild(0).localScale.x) && _boss.Rigidbody.velocity.x != 0)
         {
-            _boss.transform.localScale = new Vector3(-_boss.transform.localScale.x, _boss.transform.localScale.y, _boss.transform.localScale.z);
+            _boss.transform.GetChild(0).localScale = new Vector3(-_boss.transform.GetChild(0).localScale.x, _boss.transform.GetChild(0).localScale.y, _boss.transform.GetChild(0).localScale.z);
         }
     }
 

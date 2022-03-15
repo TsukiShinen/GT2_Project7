@@ -23,6 +23,8 @@ public class StormLordController : Entity
         TargetState = new StormLordTargetState(this);
         WanderState = new StormLordWanderState(this);
         AttackState = new StormLordAttackState(this);
+
+        Life = MaxLife;
     }
 
     void Start()
@@ -31,5 +33,8 @@ public class StormLordController : Entity
         SecondAttackBox.GetComponent<HitPlayer>().damage += Attack;
 
         ChangeState(WanderState);
+
+        lifeBar.maxValue = MaxLife;
+        lifeBar.value = Life;
     }
 }

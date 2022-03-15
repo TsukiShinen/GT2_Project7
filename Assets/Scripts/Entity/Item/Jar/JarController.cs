@@ -39,7 +39,7 @@ public class JarController : Entity
 
     public BoxCollider2D BoxCollider { get; private set; }
 
-    public GameObject Player;
+    private GameObject _player;
 
     public override void Awake()
     {
@@ -73,13 +73,12 @@ public class JarController : Entity
         if (Input.GetKeyDown(KeyCode.E))
         {
             Rigidbody.velocity = new Vector2(0, 0);
-            Player.transform.parent = null;
-            Player.SetActive(true);
+            _player.transform.parent = null;
+            _player.SetActive(true);
             BoxCollider.isTrigger = true;
             Rigidbody.gravityScale = 0;
             transform.GetChild(2).gameObject.SetActive(false);
             transform.gameObject.tag = "Untagged";
-            transform.gameObject.layer = 0;
             ChangeState(null);
         }
     }
@@ -97,15 +96,20 @@ public class JarController : Entity
 
     public void PlayerControlJar()
     {
-        Player.transform.parent = transform;
-        Player.SetActive(false);
+        lifeBar = _player.gameObject.GetComponent<Entity>().lifeBar;
+        _player.transform.parent = transform;
+        _player.SetActive(false);
         BoxCollider.isTrigger = false;
         Rigidbody.gravityScale = 1;
         GravityScale = Rigidbody.gravityScale;
         transform.GetChild(2).gameObject.SetActive(true);
-        transform.gameObject.tag = "Player";
-        transform.gameObject.layer = 8;
+        transform.gameObject.tag = "Enemy";
         ChangeState(IdleState);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        _player = collision.gameObject;
     }
 
 }

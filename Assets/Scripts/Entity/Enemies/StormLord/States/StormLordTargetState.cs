@@ -36,9 +36,9 @@ public class StormLordTargetState : IState
         Vector2 dir = ((_stormLordController.playerDetection.PlayerPosition - _stormLordController.transform.position) * new Vector2(1, 0)).normalized;
         _stormLordController.Rigidbody.AddForce(dir * _stormLordController.Speed * Time.fixedDeltaTime);
 
-        if (Mathf.Sign(_stormLordController.Rigidbody.velocity.x) != Mathf.Sign(_stormLordController.transform.localScale.x) && _stormLordController.Rigidbody.velocity.x != 0)
+        if (Mathf.Sign(_stormLordController.Rigidbody.velocity.x) != Mathf.Sign(_stormLordController.transform.GetChild(0).localScale.x) && _stormLordController.Rigidbody.velocity.x != 0)
         {
-            _stormLordController.transform.localScale = new Vector3(-_stormLordController.transform.localScale.x, _stormLordController.transform.localScale.y, _stormLordController.transform.localScale.z);
+            _stormLordController.transform.GetChild(0).localScale = new Vector3(-_stormLordController.transform.GetChild(0).localScale.x, _stormLordController.transform.GetChild(0).localScale.y, _stormLordController.transform.GetChild(0).localScale.z);
         }
     }
 

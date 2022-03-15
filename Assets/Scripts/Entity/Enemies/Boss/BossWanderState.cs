@@ -37,7 +37,7 @@ public class BossWanderState : IState
         _boss.Speed *= -1;
         _boss.Rigidbody.velocity = Vector3.zero;
         yield return new WaitForSeconds(Random.Range(0.5f, 1f));
-        _boss.transform.localScale = new Vector3(-_boss.transform.localScale.x, _boss.transform.localScale.y, _boss.transform.localScale.z);
+        _boss.transform.GetChild(0).localScale = new Vector3(-_boss.transform.GetChild(0).localScale.x, _boss.transform.GetChild(0).localScale.y, _boss.transform.GetChild(0).localScale.z);
         _timerFlip = Random.Range(4f, 8f);
         _canMove = true;
     }
@@ -52,7 +52,7 @@ public class BossWanderState : IState
 
     public void Enter()
     {
-        if (Mathf.Sign(_boss.Speed) != Mathf.Sign(_boss.transform.localScale.x)) { _boss.Speed *= -1; }
+        if (Mathf.Sign(_boss.Speed) != Mathf.Sign(_boss.transform.GetChild(0).localScale.x)) { _boss.Speed *= -1; }
         _canMove = true;
         _timerFlip = Random.Range(4f, 8f);
     }

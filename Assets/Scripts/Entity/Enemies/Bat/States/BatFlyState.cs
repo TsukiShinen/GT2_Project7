@@ -30,7 +30,7 @@ public class BatFlyState : IState
         Vector2 dir = (_bat.Detection.PlayerPosition - _bat.transform.position).normalized;
         _bat.Rigidbody.AddForce(dir * _bat.Speed * Time.fixedDeltaTime);
         if (Mathf.Sign(_bat.Rigidbody.velocity.x) == Mathf.Sign(_bat.transform.localScale.x)) {
-            _bat.transform.localScale = new Vector3(-_bat.transform.localScale.x, _bat.transform.localScale.y, _bat.transform.localScale.z);
+            _bat.transform.GetChild(0).localScale = new Vector3(-_bat.transform.GetChild(0).localScale.x, _bat.transform.GetChild(0).localScale.y, _bat.transform.GetChild(0).localScale.z);
         }
     }
 
