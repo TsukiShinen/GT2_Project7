@@ -16,14 +16,17 @@ public class SamuraiAttackState : IState
     public IState HandleInput()
     {
         if (!_isAttacking)
-            return _samurai.IdleState;
+            return _samurai.TargetState;
 
         return this;
     }
 
     public void Update()
     {
-
+        if (Mathf.Sign((_samurai.Detection.PlayerPosition - _samurai.transform.position).x) != Mathf.Sign(_samurai.transform.GetChild(0).localScale.x) && _samurai.Rigidbody.velocity.x != 0)
+        {
+            _samurai.transform.GetChild(0).localScale = new Vector3(-_samurai.transform.GetChild(0).localScale.x, _samurai.transform.GetChild(0).localScale.y, _samurai.transform.GetChild(0).localScale.z);
+        }
     }
 
     public void FixedUpdate()
@@ -39,7 +42,7 @@ public class SamuraiAttackState : IState
 
     public void Exit()
     {
-        _samurai.AttackTimer = _samurai.AttackCooldown;
+        
     }
 
     private IEnumerator Attack()
