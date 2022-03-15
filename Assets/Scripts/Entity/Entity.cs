@@ -28,7 +28,7 @@ public class Entity : StateMachine
 
         MaxLife = EntityData.MaxLife;
         Life = MaxLife;
-        if (lifeBar != null) { lifeBar.value = Life; }
+        if (lifeBar != null) { lifeBar.maxValue = MaxLife; lifeBar.value = Life; }
         Attack = EntityData.Attack;
         Defense = EntityData.Defense;
     }
