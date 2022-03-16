@@ -27,15 +27,7 @@ public class AutomateTargetState : IState
 
     public void FixedUpdate()
     {
-        _automate.Animator.SetBool("Run", Mathf.Abs(_automate.Rigidbody.velocity.x) > 0.1f);
-
-        Vector2 dir = ((_automate.Detection.PlayerPosition - _automate.transform.position) * new Vector2(1, 0)).normalized;
-        _automate.Rigidbody.AddForce(dir * _automate.Speed * Time.fixedDeltaTime);
-
-        if (Mathf.Sign(_automate.Rigidbody.velocity.x) != Mathf.Sign(_automate.transform.GetChild(0).localScale.x) && _automate.Rigidbody.velocity.x != 0)
-        {
-            _automate.transform.GetChild(0).localScale = new Vector3(-_automate.transform.GetChild(0).localScale.x, _automate.transform.GetChild(0).localScale.y, _automate.transform.GetChild(0).localScale.z);
-        }
+        _automate.Target();
     }
 
     public void Enter()

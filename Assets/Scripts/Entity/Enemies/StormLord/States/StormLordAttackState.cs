@@ -22,9 +22,9 @@ public class StormLordAttackState : IState
 
     public void Update()
     {
-        if (Mathf.Sign((_stormLordController.playerDetection.PlayerPosition - _stormLordController.transform.position).x) != Mathf.Sign(_stormLordController.transform.GetChild(0).localScale.x) && _stormLordController.Rigidbody.velocity.x != 0)
+        if (Mathf.Sign((_stormLordController.Detection.PlayerPosition - _stormLordController.transform.position).x) != Mathf.Sign(_stormLordController.transform.GetChild(0).localScale.x) && _stormLordController.Rigidbody.velocity.x != 0)
         {
-            _stormLordController.transform.GetChild(0).localScale = new Vector3(-_stormLordController.transform.GetChild(0).localScale.x, _stormLordController.transform.GetChild(0).localScale.y, _stormLordController.transform.GetChild(0).localScale.z);
+            _stormLordController.Flip();
         }
     }
 

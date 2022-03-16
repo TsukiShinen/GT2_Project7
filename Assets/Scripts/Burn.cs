@@ -27,6 +27,6 @@ public class Burn : MonoBehaviour
         if (collision == null) { return; }
         if (!collision.CompareTag("Player")) { return; }
 
-        collision.GetComponent<Entity>().Burn();
+        collision.GetComponent<Entity>().Burn(1);
     }
 }

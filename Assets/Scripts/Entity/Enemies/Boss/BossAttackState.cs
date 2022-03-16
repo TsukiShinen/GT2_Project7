@@ -22,9 +22,9 @@ public class BossAttackState : IState
 
     public void Update()
     {
-        if (Mathf.Sign((_boss.playerDetection.PlayerPosition - _boss.transform.position).x) != Mathf.Sign(_boss.transform.GetChild(0).localScale.x) && _boss.Rigidbody.velocity.x != 0)
+        if (Mathf.Sign((_boss.Detection.PlayerPosition - _boss.transform.position).x) != Mathf.Sign(_boss.transform.GetChild(0).localScale.x) && _boss.Rigidbody.velocity.x != 0)
         {
-            _boss.transform.GetChild(0).localScale = new Vector3(-_boss.transform.GetChild(0).localScale.x, _boss.transform.GetChild(0).localScale.y, _boss.transform.GetChild(0).localScale.z);
+            _boss.Flip();
         }
     }
 

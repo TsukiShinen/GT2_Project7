@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StormLordController : Entity
+public class StormLordController : Enemy
 {
-    public float Speed = 100f;
     public float Range;
-
-    public DetectPlayer playerDetection;
 
     public GameObject FirstAttackBox;
     public GameObject SecondAttackBox;
@@ -23,8 +20,6 @@ public class StormLordController : Entity
         TargetState = new StormLordTargetState(this);
         WanderState = new StormLordWanderState(this);
         AttackState = new StormLordAttackState(this);
-
-        Life = MaxLife;
     }
 
     void Start()
@@ -33,8 +28,5 @@ public class StormLordController : Entity
         SecondAttackBox.GetComponent<HitPlayer>().damage += Attack;
 
         ChangeState(WanderState);
-
-        lifeBar.maxValue = MaxLife;
-        lifeBar.value = Life;
     }
 }

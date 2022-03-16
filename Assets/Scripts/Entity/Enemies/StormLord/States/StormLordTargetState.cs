@@ -13,8 +13,8 @@ public class StormLordTargetState : IState
 
     public IState HandleInput()
     {
-        if (!_stormLordController.playerDetection.IsPlayerDetected) { return _stormLordController.WanderState; }
-        else if (Vector2.Distance(_stormLordController.playerDetection.PlayerPosition, _stormLordController.transform.position) <= _stormLordController.Range) { return _stormLordController.AttackState; }
+        if (!_stormLordController.Detection.IsPlayerDetected) { return _stormLordController.WanderState; }
+        else if (Vector2.Distance(_stormLordController.Detection.PlayerPosition, _stormLordController.transform.position) <= _stormLordController.Range) { return _stormLordController.AttackState; }
 
         return this;
     }
@@ -31,15 +31,7 @@ public class StormLordTargetState : IState
 
     public void FixedUpdate()
     {
-        _stormLordController.Animator.SetBool("Running", Mathf.Abs(_stormLordController.Rigidbody.velocity.x) > 0.1f);
-
-        Vector2 dir = ((_stormLordController.playerDetection.PlayerPosition - _stormLordController.transform.position) * new Vector2(1, 0)).normalized;
-        _stormLordController.Rigidbody.AddForce(dir * _stormLordController.Speed * Time.fixedDeltaTime);
-
-        if (Mathf.Sign(_stormLordController.Rigidbody.velocity.x) != Mathf.Sign(_stormLordController.transform.GetChild(0).localScale.x) && _stormLordController.Rigidbody.velocity.x != 0)
-        {
-            _stormLordController.transform.GetChild(0).localScale = new Vector3(-_stormLordController.transform.GetChild(0).localScale.x, _stormLordController.transform.GetChild(0).localScale.y, _stormLordController.transform.GetChild(0).localScale.z);
-        }
+        _stormLordController.Target();
     }
 
     public void Update()

@@ -13,8 +13,8 @@ public class BossTargetState : IState
 
     public IState HandleInput()
     {
-        if (!_boss.playerDetection.IsPlayerDetected) { return _boss.WanderState; } 
-        else if (Vector2.Distance(_boss.playerDetection.PlayerPosition, _boss.transform.position) <= _boss.Range) { return _boss.AttackState; }
+        if (!_boss.Detection.IsPlayerDetected) { return _boss.WanderState; } 
+        else if (Vector2.Distance(_boss.Detection.PlayerPosition, _boss.transform.position) <= _boss.Range) { return _boss.AttackState; }
 
         return this;
     }
@@ -26,15 +26,7 @@ public class BossTargetState : IState
 
     public void FixedUpdate()
     {
-        _boss.Animator.SetBool("Running", Mathf.Abs(_boss.Rigidbody.velocity.x) > 0.1f);
-
-        Vector2 dir = ((_boss.playerDetection.PlayerPosition - _boss.transform.position) * new Vector2(1, 0)).normalized;
-        _boss.Rigidbody.AddForce(dir * _boss.Speed * Time.fixedDeltaTime);
-
-        if (Mathf.Sign(_boss.Rigidbody.velocity.x) != Mathf.Sign(_boss.transform.GetChild(0).localScale.x) && _boss.Rigidbody.velocity.x != 0)
-        {
-            _boss.transform.GetChild(0).localScale = new Vector3(-_boss.transform.GetChild(0).localScale.x, _boss.transform.GetChild(0).localScale.y, _boss.transform.GetChild(0).localScale.z);
-        }
+        _boss.Target();
     }
 
     public void Enter()

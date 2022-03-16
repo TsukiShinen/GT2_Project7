@@ -15,3 +15,8 @@ MonoBehaviour:
   MaxLife: 10
   Attack: 5
   Defense: 2
+  MoveSpeed: 3
+  Acceleration: 9
+  Decceleration: 9
+  VelPower: 1.2
+  FrictionAmount: 0.2

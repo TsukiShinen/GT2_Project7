@@ -2,17 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AutomateController : Entity
+public class AutomateController : Enemy
 {
-    public float Speed;
     public float Range;
 
-    public DetectPlayer Detection;
-
     public GameObject AttackBox;
-
-    public Transform GroundCheckPos;
-    public LayerMask GroundCheckMask;
 
     public AutomateAttackState AttackState { get; private set; }
     public AutomateTargetState TargetState { get; private set; }
@@ -26,7 +20,7 @@ public class AutomateController : Entity
         base.Awake();
 
         AttackState = new AutomateAttackState(this);
-        TargetState = new AutomateTargetState(this);
+        TargetState = new AutomateTargetState(this); 
         WanderState = new AutomateWanderState(this);
         NoneState = new AutomateNoneState(this);
     }
@@ -45,14 +39,7 @@ public class AutomateController : Entity
         lifeBar.gameObject.SetActive(_currentState == NoneState ? true : false);
     }
 
-    public override void Hit(Vector2 knockBack, int damage)
-    {
-        base.Hit(knockBack, damage);
-
-        if (!IsAlive) { StartCoroutine(Death()); }
-    }
-
-    private IEnumerator Death()
+    public override IEnumerator Death()
     {
         _currentState = null;
         Rigidbody.velocity = Vector3.zero;

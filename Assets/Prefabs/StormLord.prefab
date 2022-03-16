@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &255671338057002099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2007380480466015759}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2007380480466015759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255671338057002099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.905, y: -0.971, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1888936900187819519}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888936899486844917
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,7 +179,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1888936900100241540}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f987fea0809b4ea4db838b84c8d166d2, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -181,7 +212,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: f987fea0809b4ea4db838b84c8d166d2, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -201,9 +232,13 @@ MonoBehaviour:
   EntityData: {fileID: 11400000, guid: eeba67d42bc0847419f43225e8def76f, type: 2}
   lifeBar: {fileID: 5434514526332750281}
   HurtParticle: {fileID: 0}
-  Speed: 500
+  GroundCheckPoint: {fileID: 2007380480466015759}
+  GroundCheckSize: {x: 0, y: 0}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  Detection: {fileID: 1888936899762614288}
   Range: 3.5
-  playerDetection: {fileID: 1888936899762614288}
   FirstAttackBox: {fileID: 1888936900629867071}
   SecondAttackBox: {fileID: 1888936900837835728}
 --- !u!1 &1888936900187819516
@@ -237,6 +272,7 @@ Transform:
   - {fileID: 1888936900629867070}
   - {fileID: 1888936900837835731}
   - {fileID: 1888936899762614289}
+  - {fileID: 2007380480466015759}
   m_Father: {fileID: 4904611330508240239}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

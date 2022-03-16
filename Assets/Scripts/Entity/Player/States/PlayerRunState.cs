@@ -6,9 +6,6 @@ public class PlayerRunState : IState
 {
     Player _player;
 
-    private float _xInput = 0;
-    private int _facingDirection = 1;
-
     public PlayerRunState(Player player)
     {
         _player = player;
@@ -28,44 +25,12 @@ public class PlayerRunState : IState
 
     public void Update()
     {
-        _xInput = Input.GetAxis("Horizontal");
+        _player.XInput = Input.GetAxis("Horizontal");
     }
 
     public void FixedUpdate()
     {
-        Movement();
-        Friction();
-    }
-
-    void Movement()
-    {
-        float targetSpeed = _xInput * _player.MoveSpeed;
-        float speedDif = targetSpeed - _player.Rigidbody.velocity.x;
-        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? _player.Acceleration : _player.Decceleration;
-        float movement = Mathf.Pow(Mathf.Abs(speedDif) * accelRate, _player.VelPower) * Mathf.Sign(speedDif);
-
-        _player.Rigidbody.AddForce(movement * Vector2.right);
-
-        if (_xInput > 0.01f && _facingDirection == -1)
-        {
-            _facingDirection = 1;
-            _player.transform.localScale = new Vector3(-_player.transform.localScale.x, _player.transform.localScale.y, _player.transform.localScale.z);
-        }
-        else if (_xInput < -0.01f && _facingDirection == 1)
-        {
-            _facingDirection = -1;
-            _player.transform.localScale = new Vector3(-_player.transform.localScale.x, _player.transform.localScale.y, _player.transform.localScale.z);
-        }
-    }
-
-    void Friction()
-    {
-        if (_player.LastGroundedTime > 0 && Mathf.Abs(_xInput) < 0.01f)
-        {
-            float amount = Mathf.Min(Mathf.Abs(_player.Rigidbody.velocity.x), Mathf.Abs(_player.FrictionAmount));
-            amount *= Mathf.Sign(_player.Rigidbody.velocity.x);
-            _player.Rigidbody.AddForce(Vector2.right * -amount, ForceMode2D.Impulse);
-        }
+        _player.Movement();
     }
 
     public void Enter()

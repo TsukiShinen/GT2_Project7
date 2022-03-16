@@ -22,7 +22,7 @@ public class StormHeadAttackState : IState
 
     public void Update()
     {
-        if (Mathf.Sign((_stormHeadController.playerDetection.PlayerPosition - _stormHeadController.transform.position).x) != Mathf.Sign(_stormHeadController.transform.GetChild(0).localScale.x) && _stormHeadController.Rigidbody.velocity.x != 0)
+        if (Mathf.Sign((_stormHeadController.Detection.PlayerPosition - _stormHeadController.transform.position).x) != Mathf.Sign(_stormHeadController.transform.GetChild(0).localScale.x) && _stormHeadController.Rigidbody.velocity.x != 0)
         {
             _stormHeadController.transform.GetChild(0).localScale = new Vector3(-_stormHeadController.transform.GetChild(0).localScale.x, _stormHeadController.transform.GetChild(0).localScale.y, _stormHeadController.transform.GetChild(0).localScale.z);
         }
