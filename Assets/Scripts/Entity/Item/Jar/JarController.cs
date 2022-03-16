@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class JarController : Entity
 {
-    [Header("Movement")]
-    public float MoveSpeed;
-    public float Acceleration;
-    public float Decceleration;
-    public float VelPower;
-    [Space(10)]
-    public float FrictionAmount;
-
     [Header("Jump")]
     public float JumpForce;
     [Range(0f, 1f)]
@@ -22,13 +14,6 @@ public class JarController : Entity
     [Space(10)]
     public float FallGravityMultiplier;
 
-    [Header("Check")]
-    public Transform GroundCheckPoint;
-    public Vector2 GroundCheckSize;
-    [Space(10)]
-    public LayerMask GroundLayer;
-
-    public float LastGroundedTime { get; set; }
     public float LastJumpTime { get; set; }
     public float GravityScale { get; private set; }
 
@@ -84,11 +69,8 @@ public class JarController : Entity
         }
     }
 
-    public override void FixedUpdate()
+    public override void Check()
     {
-        base.FixedUpdate();
-
-        // Check
         if (Physics2D.OverlapBox(GroundCheckPoint.position, GroundCheckSize, 0, GroundLayer))
         {
             LastGroundedTime = JumpCoyoteTime;

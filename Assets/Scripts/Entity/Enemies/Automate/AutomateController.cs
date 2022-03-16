@@ -31,21 +31,4 @@ public class AutomateController : Enemy
 
         ChangeState(WanderState);
     }
-
-    public override void Update()
-    {
-        base.Update();
-
-        lifeBar.gameObject.SetActive(_currentState == NoneState ? true : false);
-    }
-
-    public override IEnumerator Death()
-    {
-        _currentState = null;
-        Rigidbody.velocity = Vector3.zero;
-        lifeBar.gameObject.SetActive(false);
-        yield return new WaitForSeconds(1f);
-        GameObject clone = Instantiate(Prefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
-    }
 }
