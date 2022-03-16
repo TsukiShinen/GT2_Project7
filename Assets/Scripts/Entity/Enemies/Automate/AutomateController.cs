@@ -31,4 +31,14 @@ public class AutomateController : Enemy
 
         ChangeState(WanderState);
     }
+
+    public override IEnumerator Death()
+    {
+        _currentState = null;
+        Rigidbody.velocity = Vector3.zero;
+        lifeBar.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        Instantiate(Prefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
 }

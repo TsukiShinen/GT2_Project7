@@ -26,7 +26,7 @@ public class AutomateAttackState : IState
     {
         if (Mathf.Sign((_automate.Detection.PlayerPosition - _automate.transform.position).x) != Mathf.Sign(_automate.transform.GetChild(0).localScale.x) && _automate.Rigidbody.velocity.x != 0)
         {
-            _automate.transform.GetChild(0).localScale = new Vector3(-_automate.transform.GetChild(0).localScale.x, _automate.transform.GetChild(0).localScale.y, _automate.transform.GetChild(0).localScale.z);
+            _automate.Flip();
         }
     }
 

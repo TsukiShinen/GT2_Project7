@@ -35,6 +35,6 @@ public class AutomateNoneState : IState
 
     public void Exit()
     {
-
+        _automate.Animator.Play("Idle");
     }
 }
