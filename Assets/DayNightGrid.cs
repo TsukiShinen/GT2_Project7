@@ -8,6 +8,9 @@ public class DayNightGrid : MonoBehaviour
     private GameObject _water;
 
     [SerializeField]
+    private GameObject _water2;
+
+    [SerializeField]
     private GameObject _ice;
 
 
@@ -19,6 +22,7 @@ public class DayNightGrid : MonoBehaviour
     void GridUpdate(bool IsDay)
     {
         _water.SetActive(IsDay);
+        _water2.SetActive(IsDay);
         _ice.SetActive(!IsDay);
     }
 }
