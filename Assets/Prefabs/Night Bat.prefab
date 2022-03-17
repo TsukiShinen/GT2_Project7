@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3061656366196147405}
   - component: {fileID: 3061656366196147406}
   - component: {fileID: 3061656366196147407}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Night Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -196,7 +196,8 @@ MonoBehaviour:
   Speed: 50
   AttackRange: 1.5
   AttackCooldown: 1
-  Detection: {fileID: 0}
+  DetectionDay: {fileID: 0}
+  DetectionNight: {fileID: 0}
   AttackBox: {fileID: 8968876475426007434}
 --- !u!50 &3061656366196147406
 Rigidbody2D:

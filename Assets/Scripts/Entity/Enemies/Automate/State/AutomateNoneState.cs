@@ -31,6 +31,7 @@ public class AutomateNoneState : IState
     public void Enter()
     {
         _automate.Animator.Play("IdleSleep");
+        _automate.Rigidbody.velocity = Vector3.zero;
     }
 
     public void Exit()

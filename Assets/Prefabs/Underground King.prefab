@@ -510,7 +510,7 @@ GameObject:
   - component: {fileID: 4708085119419415210}
   - component: {fileID: 4708085119419415211}
   - component: {fileID: 4708085119419415209}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Underground King
   m_TagString: Enemy
   m_Icon: {fileID: 0}

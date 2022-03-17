@@ -63,13 +63,14 @@ public class BatController : Entity
     public override void Hit(Vector2 knockBack, int damage)
     {
         base.Hit(knockBack, damage);
-
+        AudioManager.Instance.Play("BatHurt");
         if (!IsAlive) { StartCoroutine(Death()); }
     }
 
     private IEnumerator Death()
     {
         _currentState = null;
+        AudioManager.Instance.Play("BatDeath");
         Rigidbody.velocity = Vector3.zero;
         lifeBar.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);

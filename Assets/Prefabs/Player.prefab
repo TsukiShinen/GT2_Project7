@@ -10400,6 +10400,7 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  DeathParticule: {fileID: 526384680}
   JumpForce: 13
   JumpCutMultiplier: 0.5
   JumpCoyoteTime: 0.15

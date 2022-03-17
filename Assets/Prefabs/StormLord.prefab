@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 1888936900100241537}
   - component: {fileID: 1888936900100241542}
   - component: {fileID: 1888936900100241536}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StormLord
   m_TagString: Enemy
   m_Icon: {fileID: 0}

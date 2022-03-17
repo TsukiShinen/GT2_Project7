@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 7243161956776374211}
   - component: {fileID: 7243161956776374210}
   - component: {fileID: 7243161956776374205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StormHead
   m_TagString: Enemy
   m_Icon: {fileID: 0}

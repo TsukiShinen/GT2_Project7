@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 953538633004869712}
   - component: {fileID: -6649220892312809005}
   - component: {fileID: 201794680810780003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Storm Samurai
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.7518561, y: -0.09530571}
+  m_Offset: {x: -0.63513184, y: -0.2838509}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -164,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9788203, y: 0.8093886}
+  m_Size: {x: 3.079834, y: 1.1864791}
   m_EdgeRadius: 0
 --- !u!114 &186518383377091917
 MonoBehaviour:
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c90d85c309efe4cb5a7f50b2309c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockback: 500
+  _knockback: 0
   _additionalDamage: 0
 --- !u!1 &4452085009328284400
 GameObject:

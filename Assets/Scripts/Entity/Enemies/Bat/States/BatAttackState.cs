@@ -34,6 +34,7 @@ public class BatAttackState : IState
     {
         _attacking = true;
         _bat.Animator.SetTrigger("Attack");
+        _bat.Rigidbody.velocity = Vector3.zero;
         _bat.StartCoroutine(Attack());
     }
 
@@ -46,6 +47,7 @@ public class BatAttackState : IState
     {
         yield return new WaitForSeconds(0.3f);
         _bat.AttackBox.SetActive(true);
+        AudioManager.Instance.Play("BatHit");
         yield return new WaitForSeconds(0.3f);
         _bat.AttackBox.SetActive(false);
         _attacking = false;

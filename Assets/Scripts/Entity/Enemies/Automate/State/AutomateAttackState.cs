@@ -38,6 +38,7 @@ public class AutomateAttackState : IState
     public void Enter()
     {
         _isAttacking = true;
+        _automate.Rigidbody.velocity = Vector3.zero;
         _automate.StartCoroutine(Attack());
     }
 
@@ -48,11 +49,12 @@ public class AutomateAttackState : IState
 
     private IEnumerator Attack()
     {
-        yield return new WaitForSeconds(1f);
-        _automate.AttackBox.SetActive(true);
         _automate.Animator.SetTrigger("Charge");
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.333f);
+        _automate.AttackBox.SetActive(true);
+        yield return new WaitForSeconds(0.333f);
         _automate.AttackBox.SetActive(false);
+        yield return new WaitForSeconds(1f);
         _isAttacking = false;
     }
 }

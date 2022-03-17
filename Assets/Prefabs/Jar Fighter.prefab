@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 1680954485180385128}
   - component: {fileID: 2960238006237661099}
   - component: {fileID: 6554682401546536384}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jar Fighter
   m_TagString: Enemy
   m_Icon: {fileID: 0}

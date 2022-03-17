@@ -36,6 +36,7 @@ public class StormHeadAttackState : IState
     public void Enter()
     {
         _isAttacking = true;
+        _stormHeadController.Rigidbody.velocity = Vector3.zero;
         _stormHeadController.StartCoroutine(Attack());
     }
 
@@ -44,9 +45,11 @@ public class StormHeadAttackState : IState
         _stormHeadController.Animator.SetTrigger("Attack");
         yield return new WaitForSeconds(0.5f);
         _stormHeadController.FirstAttackBox.SetActive(true);
+        AudioManager.Instance.Play("StormHeadHit1");
         yield return new WaitForSeconds(0.33333f);
         _stormHeadController.FirstAttackBox.SetActive(false);
         _stormHeadController.SecondAttackBox.SetActive(true);
+        AudioManager.Instance.Play("StormHeadHit2");
         yield return new WaitForSeconds(0.33333f);
         _stormHeadController.SecondAttackBox.SetActive(false);
         yield return new WaitForSeconds(0.5f);

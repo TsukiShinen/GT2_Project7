@@ -100,4 +100,7 @@ public class Enemy : Entity
         if (!(Mathf.Sign(XInput) != Mathf.Sign(transform.GetChild(0).localScale.x) && XInput != 0)) { return; }
         transform.GetChild(0).localScale = new Vector3(-transform.GetChild(0).localScale.x, transform.GetChild(0).localScale.y, transform.GetChild(0).localScale.z);
     }
+
+    
+
 }

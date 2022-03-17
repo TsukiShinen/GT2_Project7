@@ -36,6 +36,7 @@ public class StormLordAttackState : IState
     public void Enter()
     {
         _isAttacking = true;
+        _stormLordController.Rigidbody.velocity = Vector3.zero;
         _stormLordController.StartCoroutine(Attack());
     }
 

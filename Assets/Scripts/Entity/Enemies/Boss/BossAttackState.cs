@@ -36,6 +36,7 @@ public class BossAttackState : IState
     public void Enter()
     {
         _isAttacking = true;
+        _boss.Rigidbody.velocity = Vector3.zero;
         _boss.StartCoroutine(Attack());
     }
 
