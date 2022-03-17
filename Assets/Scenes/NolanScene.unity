@@ -10758,7 +10758,7 @@ Tilemap:
       - {fileID: -273577189, guid: 75010375f1a2a784e9c975a126776b1b, type: 3}
       - {fileID: 31879445, guid: 75010375f1a2a784e9c975a126776b1b, type: 3}
       - {fileID: -1371918968, guid: 75010375f1a2a784e9c975a126776b1b, type: 3}
-      m_AnimationSpeed: 12.000001
+      m_AnimationSpeed: 12
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -3, y: -29, z: 0}
@@ -27570,6 +27570,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1603348220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 763092562718243695, guid: 403d7780b165d704787db9e2b5b5d1ee, type: 3}
+  m_PrefabInstance: {fileID: 763092564029270792}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951bbf05b60250e45abfde47ff990eb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1613380495
 GameObject:
   m_ObjectHideFlags: 0
@@ -71423,9 +71434,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 879491126}
     m_Modifications:
     - target: {fileID: 763092562718243680, guid: 403d7780b165d704787db9e2b5b5d1ee, type: 3}
+      propertyPath: _actions.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 763092562718243680, guid: 403d7780b165d704787db9e2b5b5d1ee, type: 3}
+      propertyPath: _actions.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 763092562718243680, guid: 403d7780b165d704787db9e2b5b5d1ee, type: 3}
       propertyPath: _actions.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 481997063}
+    - target: {fileID: 763092562718243680, guid: 403d7780b165d704787db9e2b5b5d1ee, type: 3}
+      propertyPath: _actions.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1603348220}
+    - target: {fileID: 763092562718243680, guid: 403d7780b165d704787db9e2b5b5d1ee, type: 3}
+      propertyPath: _actions.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 763092562718243680, guid: 403d7780b165d704787db9e2b5b5d1ee, type: 3}
+      propertyPath: _actions.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: DayNightManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 763092562718243689, guid: 403d7780b165d704787db9e2b5b5d1ee, type: 3}
       propertyPath: m_Name
       value: Checkpoint 1

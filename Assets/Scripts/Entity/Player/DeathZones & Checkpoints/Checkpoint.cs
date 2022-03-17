@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Save()
     {
-        if (!collision.CompareTag("Player")) { return; }
+        FindObjectOfType<Player>().Heal();
         GameManager.Instance.RegisterChackpoint(transform);
     }
 }
