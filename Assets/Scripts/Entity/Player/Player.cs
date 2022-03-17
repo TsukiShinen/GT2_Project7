@@ -56,6 +56,12 @@ public class Player : Entity
         Awake();
         Start();
     }
+
+    public void Heal()
+    {
+        Life = MaxLife;
+        StartCoroutine(IncreaceLifeBar(Life));
+    }
     #endregion
 
     public override void Awake()

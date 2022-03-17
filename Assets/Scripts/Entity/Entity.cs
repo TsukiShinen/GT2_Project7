@@ -26,7 +26,7 @@ public class Entity : StateMachine
     #region life
     public float Life { get; set; }
     public bool IsAlive { get { return Life > 0; } }
-    private IEnumerator DecreaseLifeBar(float newValue)
+    public IEnumerator DecreaseLifeBar(float newValue)
     {
         while (lifeBar.value != newValue)
         {
@@ -37,7 +37,7 @@ public class Entity : StateMachine
         }
     }
 
-    private IEnumerator IncreaceLifeBar(float newValue)
+    public IEnumerator IncreaceLifeBar(float newValue)
     {
         while (lifeBar.value != newValue)
         {
