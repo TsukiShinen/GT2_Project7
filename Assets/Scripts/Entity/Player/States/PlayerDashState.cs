@@ -34,6 +34,7 @@ public class PlayerDashState : IState
 
     public void Enter()
     {
+        AudioManager.Instance.Play("Dash");
         _player.CanDash = false;
         _isDashing = true;
         _player.TrailRenderer.emitting = true;

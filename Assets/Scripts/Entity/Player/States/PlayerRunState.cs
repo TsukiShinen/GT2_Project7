@@ -36,10 +36,12 @@ public class PlayerRunState : IState
     public void Enter()
     {
         _player.Animator.SetBool("isRunning", true);
+        AudioManager.Instance.Play("Footstep");
     }
 
     public void Exit()
     {
         _player.Animator.SetBool("isRunning", false);
+        AudioManager.Instance.Stop("Footstep");
     }
 }

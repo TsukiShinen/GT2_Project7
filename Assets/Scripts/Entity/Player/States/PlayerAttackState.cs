@@ -44,6 +44,7 @@ public class PlayerAttackState : IState
 
     private IEnumerator Attack()
     {
+        AudioManager.Instance.Play("Hit1");
         yield return new WaitForSeconds(0.3f);
         _player.AttackBox.SetActive(true);
         yield return new WaitForSeconds(0.4f);
@@ -54,7 +55,8 @@ public class PlayerAttackState : IState
             _player.Animator.SetTrigger("Combo");
             _player.StartCoroutine(Combo());
             _doCombo = false;
-        } else
+        } 
+        else
         {
             _isAttacking = false;
         }
@@ -64,6 +66,7 @@ public class PlayerAttackState : IState
     {
         yield return new WaitForSeconds(0.1f);
         _player.ComboBox.SetActive(true);
+        AudioManager.Instance.Play("Hit2");
         yield return new WaitForSeconds(0.4f);
         _player.ComboBox.SetActive(false);
 

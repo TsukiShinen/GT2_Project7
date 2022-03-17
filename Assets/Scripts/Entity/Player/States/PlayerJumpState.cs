@@ -51,6 +51,8 @@ public class PlayerJumpState : IState
         _player.Rigidbody.AddForce(Vector2.up * _player.JumpForce, ForceMode2D.Impulse);
         _player.LastGroundedTime = 0;
         _player.LastJumpTime = 0;
+
+        AudioManager.Instance.Play("Jump");
     }
 
     public void Exit()
