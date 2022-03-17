@@ -5537,7 +5537,7 @@ MonoBehaviour:
   DashingVelocity: 18
   DashingTime: 0.15
   ShakeTime: 0.2
-  ShakeAmplitue: 5
+  ShakeAmplitue: 3
   ShakeFrequency: 2
   CooldownAttack: 1
   AttackBox: {fileID: 1103279074}
