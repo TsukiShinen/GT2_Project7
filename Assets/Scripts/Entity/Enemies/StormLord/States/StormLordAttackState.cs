@@ -46,8 +46,10 @@ public class StormLordAttackState : IState
         _stormLordController.Animator.SetTrigger(name);
         if (name == "Attack1")
         {
+            AudioManager.Instance.Play("StormLordHit1_1");
             yield return new WaitForSeconds(1.25f);
             _stormLordController.FirstAttackBox.SetActive(true);
+            AudioManager.Instance.Play("StormLordHit1_2");
             yield return new WaitForSeconds(0.333f);
             _stormLordController.FirstAttackBox.SetActive(false);
             yield return new WaitForSeconds(0.25f);
@@ -56,6 +58,7 @@ public class StormLordAttackState : IState
         {
             yield return new WaitForSeconds(0.5f);
             _stormLordController.SecondAttackBox.SetActive(true);
+            AudioManager.Instance.Play("StormLordHit2");
             yield return new WaitForSeconds(0.1666f);
             _stormLordController.SecondAttackBox.SetActive(false);
             yield return new WaitForSeconds(0.08333f);
