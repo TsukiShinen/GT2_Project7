@@ -54,6 +54,12 @@ public class BatController : Entity
         ChangeState(IdleState);
     }
 
+    public override void Update()
+    {
+        base.Update();
+        lifeBar.gameObject.SetActive(_currentState == IdleState ? false : true);
+    }
+
     public override void Hit(Vector2 knockBack, int damage)
     {
         base.Hit(knockBack, damage);

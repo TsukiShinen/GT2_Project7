@@ -55,5 +55,9 @@ public class SamuraiAttackState : IState
         yield return new WaitForSeconds(0.6f);
         attack.SetActive(false);
         _isAttacking = false;
+        if (name == "Attack2" && _samurai.transform.GetChild(0).localScale.x == 1)
+            _samurai.transform.position = new Vector3(_samurai.transform.position.x + _samurai.SpriteRenderer.size.x, _samurai.transform.position.y, _samurai.transform.position.z);
+        else if (name == "Attack2" && _samurai.transform.GetChild(0).localScale.x == -1)
+            _samurai.transform.position = new Vector3(_samurai.transform.position.x - _samurai.SpriteRenderer.size.x, _samurai.transform.position.y, _samurai.transform.position.z);
     }
 }

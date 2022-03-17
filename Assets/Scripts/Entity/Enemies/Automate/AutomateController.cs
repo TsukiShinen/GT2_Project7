@@ -32,6 +32,12 @@ public class AutomateController : Enemy
         ChangeState(WanderState);
     }
 
+    public override void Update()
+    {
+        base.Update();
+        lifeBar.gameObject.SetActive(_currentState == NoneState ? false : true);
+    }
+
     public override IEnumerator Death()
     {
         _currentState = null;
