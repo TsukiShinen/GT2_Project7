@@ -34,10 +34,12 @@ public class JarRunState : IState
     public void Enter()
     {
         _jar.Animator.SetBool("Run", true);
+        AudioManager.Instance.Play("JarFootStep");
     }
 
     public void Exit()
     {
         _jar.Animator.SetBool("Run", false);
+        AudioManager.Instance.Stop("JarFootStep");
     }
 }

@@ -47,6 +47,7 @@ public class JarJumpState : IState
         _jar.Rigidbody.AddForce(Vector2.up * _jar.JumpForce, ForceMode2D.Impulse);
         _jar.LastGroundedTime = 0;
         _jar.LastJumpTime = 0;
+        AudioManager.Instance.Play("JarJump");
     }
 
     public void Exit()
