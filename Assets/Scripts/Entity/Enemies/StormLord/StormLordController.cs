@@ -24,8 +24,8 @@ public class StormLordController : Enemy
 
     void Start()
     {
-        FirstAttackBox.GetComponent<HitPlayer>().damage += Attack;
-        SecondAttackBox.GetComponent<HitPlayer>().damage += Attack;
+        FirstAttackBox.GetComponent<HitPlayer>().damage = Attack;
+        SecondAttackBox.GetComponent<HitPlayer>().damage = Attack;
 
         ChangeState(WanderState);
     }

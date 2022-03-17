@@ -5524,21 +5524,16 @@ MonoBehaviour:
   EntityData: {fileID: 11400000, guid: 8e8077aeb02bab94dbdf21f74681367e, type: 2}
   lifeBar: {fileID: 0}
   HurtParticle: {fileID: 1264577373}
-  MoveSpeed: 9
-  Acceleration: 9
-  Decceleration: 9
-  VelPower: 1.2
-  FrictionAmount: 0.2
-  JumpForce: 13
-  JumpCutMultiplier: 0.5
-  JumpCoyoteTime: 0.15
-  JumpBufferTime: 0.1
-  FallGravityMultiplier: 1.9
   GroundCheckPoint: {fileID: 9005378475534727440}
   GroundCheckSize: {x: 0.4, y: 0.1}
   GroundLayer:
     serializedVersion: 2
     m_Bits: 64
+  JumpForce: 13
+  JumpCutMultiplier: 0.5
+  JumpCoyoteTime: 0.15
+  JumpBufferTime: 0.1
+  FallGravityMultiplier: 1.9
   DashingVelocity: 18
   DashingTime: 0.15
   ShakeTime: 0.2

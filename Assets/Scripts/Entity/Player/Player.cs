@@ -48,11 +48,15 @@ public class Player : Entity
     public bool CanDash { get; set; }
     public bool CanAttackDistance { get; set; }
 
-    public Checkpoint LastCheckPoint
+    #region Checkpoint
+    public void Respawn(Transform checkPoint)
     {
-        get => lastCheckPoint;
-        set => lastCheckPoint = value;
+        transform.position = checkPoint.position;
+        StopAllCoroutines();
+        Awake();
+        Start();
     }
+    #endregion
 
     public override void Awake()
     {
@@ -68,22 +72,19 @@ public class Player : Entity
         AttackState = new PlayerAttackState(this);
         DistanceAttackState = new PlayerDistanceAttack(this);
 
-        Life = MaxLife;
         CanDash = false;
         CanAttackDistance = false;
+        Debug.Log("Awake");
     }
 
     void Start()
     {
-        lifeBar.maxValue = MaxLife;
-        lifeBar.value = Life;
-
         GravityScale = Rigidbody.gravityScale;
 
-        AttackBox.GetComponent<HitEnemy>().damage += Attack;
-        ComboBox.GetComponent<HitEnemy>().damage += Attack;
-        DistanceAttackBox.GetComponent<HitEnemy>().damage += Attack;
-        DistanceAttackBox2.GetComponent<HitEnemy>().damage += Attack;
+        AttackBox.GetComponent<HitEnemy>().damage = Attack;
+        ComboBox.GetComponent<HitEnemy>().damage = Attack;
+        DistanceAttackBox.GetComponent<HitEnemy>().damage = Attack;
+        DistanceAttackBox2.GetComponent<HitEnemy>().damage = Attack;
 
         ChangeState(IdleState);
     }
@@ -111,12 +112,11 @@ public class Player : Entity
         }
     }
 
-    public void Respawn()
+    public override IEnumerator Death()
     {
-        if (lastCheckPoint != null)
-            transform.position = lastCheckPoint.transform.position;
-        else
-            GameManager.Instance.Reload();
+        yield return StartCoroutine(base.Death())   ;
+
+        GameManager.Instance.LoadLastCheckPoint();
     }
 
 }

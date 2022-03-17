@@ -35,7 +35,6 @@ public class Entity : StateMachine
 
             yield return null;
         }
-        Debug.Log(gameObject.name + " HP : " + newValue);
     }
 
     private IEnumerator IncreaceLifeBar(float newValue)

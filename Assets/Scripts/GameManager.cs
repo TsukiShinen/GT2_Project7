@@ -26,9 +26,45 @@ public class GameManager : MonoBehaviour
     private CinemachineVirtualCamera _virtualCamera;
     private CinemachineBasicMultiChannelPerlin _virtualCameraNoise;
 
+    private Transform _checkpoint;
+
+    private GameObject _deadEnemy;
+
     void Start()
     {
         _virtualCameraNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+        _deadEnemy = new GameObject("Dead Enemy");
+        _deadEnemy.transform.SetParent(transform);
+    }
+
+    public void RegisterChackpoint(Transform checkpoint)
+    {
+        _checkpoint = checkpoint;
+        for (int i = 0; i < _deadEnemy.transform.childCount; i++)
+        {
+            Destroy(_deadEnemy.transform.GetChild(i).gameObject);
+        }
+    }
+
+    public void LoadLastCheckPoint()
+    {
+        if (_checkpoint == null) { Reload(); return; }
+
+        FindObjectOfType<Player>().Respawn(_checkpoint);
+
+        for (int i = 0; i < _deadEnemy.transform.childCount; i++)
+        {
+            GameObject enemy = _deadEnemy.transform.GetChild(i).gameObject;
+            enemy.SetActive(true);
+            enemy.transform.SetParent(null);
+            enemy.GetComponent<Enemy>().Respawn();
+        }
+    }
+
+    public void AddDeadEnemy(GameObject enemy)
+    {
+        enemy.transform.SetParent(_deadEnemy.transform);
+        enemy.SetActive(false);
     }
 
     public void Reload()

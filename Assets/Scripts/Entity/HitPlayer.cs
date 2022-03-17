@@ -11,16 +11,11 @@ public class HitPlayer : MonoBehaviour
 
     public int damage { get; set; }
 
-    private void Awake()
-    {
-        damage += _additionalDamage;
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision == null) { return; }
         if (!collision.CompareTag("Player")) { return; }
 
-        collision.GetComponent<Entity>().Hit((collision.transform.position - transform.position).normalized * _knockback, damage);
+        collision.GetComponent<Entity>().Hit((collision.transform.position - transform.position).normalized * _knockback, damage + _additionalDamage);
     }
 }

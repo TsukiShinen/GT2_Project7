@@ -16,6 +16,7 @@ public class Enemy : Entity
     {
         base.Awake();
 
+        _initialTransform = transform;
         Direction = 1;
     }
 
@@ -67,7 +68,15 @@ public class Enemy : Entity
     }
     #endregion
 
-    #region Hit and Death
+    #region Death and Rewpawn
+
+    private Transform _initialTransform;
+
+    public void Respawn()
+    {
+        transform.position = _initialTransform.position;
+        Awake();
+    }
 
     public override IEnumerator Death()
     {
@@ -75,7 +84,7 @@ public class Enemy : Entity
 
         lifeBar.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+        GameManager.Instance.AddDeadEnemy(gameObject);
     }
     #endregion
 

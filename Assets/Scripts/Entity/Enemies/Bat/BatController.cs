@@ -29,7 +29,7 @@ public class BatController : Entity
         ToIdleState = new BatToIdleState(this);
         AttackState = new BatAttackState(this);
 
-        AttackBox.GetComponent<HitPlayer>().damage += Attack;
+        AttackBox.GetComponent<HitPlayer>().damage = Attack;
     }
 
     public override void FixedUpdate()

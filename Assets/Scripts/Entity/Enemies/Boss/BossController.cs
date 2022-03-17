@@ -24,8 +24,8 @@ public class BossController : Enemy
 
     private void Start()
     {
-        FirstAttackBox.GetComponent<HitPlayer>().damage += Attack;
-        SecondAttackBox.GetComponent<HitPlayer>().damage += Attack;
+        FirstAttackBox.GetComponent<HitPlayer>().damage = Attack;
+        SecondAttackBox.GetComponent<HitPlayer>().damage = Attack;
 
         ChangeState(WanderState);
     }

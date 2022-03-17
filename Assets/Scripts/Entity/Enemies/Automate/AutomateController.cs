@@ -27,7 +27,7 @@ public class AutomateController : Enemy
 
     void Start()
     {
-        AttackBox.GetComponent<HitPlayer>().damage += Attack;
+        AttackBox.GetComponent<HitPlayer>().damage = Attack;
 
         ChangeState(WanderState);
     }
