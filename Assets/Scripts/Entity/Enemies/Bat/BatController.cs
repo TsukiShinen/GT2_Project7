@@ -9,7 +9,9 @@ public class BatController : Entity
     public float AttackCooldown = 1f;
     public float AttackTimer { get; set; }
 
-    public DetectPlayer Detection;
+    public DetectPlayer Detection { get; private set; }
+    public DetectPlayer DetectionDay;
+    public DetectPlayer DetectionNight;
     public GameObject AttackBox;
 
     public BatIdleState IdleState { get; private set; }
@@ -28,8 +30,13 @@ public class BatController : Entity
         FlyState = new BatFlyState(this);
         ToIdleState = new BatToIdleState(this);
         AttackState = new BatAttackState(this);
-
+        Detection = DetectionDay;
         AttackBox.GetComponent<HitPlayer>().damage = Attack;
+    }
+
+    private void OnDay(bool IsDay)
+    {
+        Detection = IsDay ? DetectionDay : DetectionNight;
     }
 
     public override void FixedUpdate()
@@ -43,6 +50,7 @@ public class BatController : Entity
 
     void Start()
     {
+        DayNightManager.Instance.EventDay += OnDay;
         ChangeState(IdleState);
     }
 

@@ -33,6 +33,12 @@ public class Interactable : MonoBehaviour
         _canInput = false;
         _doingAction = false;
         _image.fillAmount = _timer;
+        DayNightManager.Instance.EventDay += OnDay;
+    }
+
+    private void OnDay(bool IsDay)
+    {
+        _canvas.GetComponentInChildren<TMP_Text>().color = IsDay ? Color.black : Color.white;
     }
 
     private void Update()
