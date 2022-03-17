@@ -40,7 +40,7 @@ public class AutomateController : Enemy
 
     public override IEnumerator Death()
     {
-        AudioManager.Instance.Play("JarDeath");
+        AudioManager.Instance.Play("EnemyDeath");
         Rigidbody.velocity = Vector3.zero;
         _currentState = null;
         lifeBar.gameObject.SetActive(false);

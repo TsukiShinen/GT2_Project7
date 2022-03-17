@@ -40,4 +40,10 @@ public class SamuraiController : Enemy
     {
         SpriteRenderer.material.SetFloat("_Intensity", 2 - pr * 2);
     }
+
+    public override void Hit(Vector2 knockBack, int damage)
+    {
+        base.Hit(knockBack, damage);
+        AudioManager.Instance.Play("EnemyHurt");
+    }
 }

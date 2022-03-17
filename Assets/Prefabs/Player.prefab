@@ -4916,7 +4916,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.418695, y: -0.0954752}
+  m_Offset: {x: 3.3138266, y: -0.11145949}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4927,7 +4927,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8284874, y: 0.47344208}
+  m_Size: {x: 4.6187506, y: 0.5054107}
   m_EdgeRadius: 0
 --- !u!114 &766234525
 MonoBehaviour:
@@ -4941,7 +4941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d60dd3d32ecbd4ab045298073e0882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockback: 500
+  _knockback: 200
   _additionalDamage: 0
 --- !u!1 &816676405
 GameObject:
@@ -5074,7 +5074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d60dd3d32ecbd4ab045298073e0882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockback: 500
+  _knockback: 200
   _additionalDamage: 0
 --- !u!1 &1228687537
 GameObject:
@@ -10025,7 +10025,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.418695, y: -0.10370445}
+  m_Offset: {x: 1.4836019, y: -0.10370445}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -10036,7 +10036,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8284874, y: 0.32529068}
+  m_Size: {x: 4.6986732, y: 0.51735413}
   m_EdgeRadius: 0
 --- !u!114 &1506275254
 MonoBehaviour:
@@ -10050,7 +10050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d60dd3d32ecbd4ab045298073e0882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockback: 500
+  _knockback: 200
   _additionalDamage: 0
 --- !u!1 &1762796767
 GameObject:
@@ -10123,7 +10123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d60dd3d32ecbd4ab045298073e0882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockback: 500
+  _knockback: 200
   _additionalDamage: 0
 --- !u!1 &9005378474559897691
 GameObject:

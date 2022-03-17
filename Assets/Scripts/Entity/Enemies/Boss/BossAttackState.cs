@@ -46,9 +46,11 @@ public class BossAttackState : IState
         yield return new WaitForSeconds(1f);
         _boss.Animator.SetTrigger("Attack");
         _boss.FirstAttackBox.SetActive(true);
+        AudioManager.Instance.Play("BossHit1");
         yield return new WaitForSeconds(0.25f);
         _boss.FirstAttackBox.SetActive(false);
         _boss.SecondAttackBox.SetActive(true);
+        AudioManager.Instance.Play("BossHit2");
         yield return new WaitForSeconds(0.25f);
         _boss.SecondAttackBox.SetActive(false);
         yield return new WaitForSeconds(0.1f);

@@ -51,10 +51,11 @@ public class AutomateAttackState : IState
     {
         _automate.Animator.SetTrigger("Charge");
         yield return new WaitForSeconds(0.333f);
+        AudioManager.Instance.Play("JarHit");
         _automate.AttackBox.SetActive(true);
         yield return new WaitForSeconds(0.333f);
         _automate.AttackBox.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         _isAttacking = false;
     }
 }

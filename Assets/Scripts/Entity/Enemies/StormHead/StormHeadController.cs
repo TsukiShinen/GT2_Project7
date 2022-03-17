@@ -29,4 +29,11 @@ public class StormHeadController : Enemy
 
         ChangeState(WanderState);
     }
+
+    public override void Hit(Vector2 knockBack, int damage)
+    {
+        base.Hit(knockBack, damage);
+        AudioManager.Instance.Play("EnemyHurt");
+    }
+
 }
