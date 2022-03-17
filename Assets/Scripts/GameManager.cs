@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] GameObject coin1;
+    [SerializeField] GameObject coin2;
+    [SerializeField] GameObject coin3;
+
     [SerializeField]
     private Animator _transition;
 
