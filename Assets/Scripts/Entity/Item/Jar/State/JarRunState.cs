@@ -26,7 +26,9 @@ public class JarRunState : IState
 
     public void FixedUpdate()
     {
+        _jar._canvas.transform.parent = null;
         _jar.Movement();
+        _jar._canvas.transform.parent = _jar.transform;
     }
 
     public void Enter()

@@ -26,6 +26,8 @@ public class JarController : Entity
 
     private GameObject _player;
 
+    public GameObject _canvas;
+
     public override void Awake()
     {
         base.Awake();
@@ -98,6 +100,8 @@ public class JarController : Entity
         if (!collision.CompareTag("Player")) { return; }
 
         _player = collision.gameObject;
+
+        _canvas = transform.GetChild(3).gameObject;
     }
 
 }
