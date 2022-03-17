@@ -33,9 +33,7 @@ public class GameManager : MonoBehaviour
     private CinemachineVirtualCamera _virtualCamera;
     private CinemachineBasicMultiChannelPerlin _virtualCameraNoise;
 
-    private Transform _checkpoint;
 
-    private GameObject _deadEnemy;
 
     void Start()
     {
@@ -44,6 +42,9 @@ public class GameManager : MonoBehaviour
         _deadEnemy.transform.SetParent(transform);
     }
 
+    #region Checkpoint and enemy
+    private Transform _checkpoint;
+    private GameObject _deadEnemy;
     public void RegisterCheckpoint(Transform checkpoint)
     {
         _checkpoint = checkpoint;
@@ -75,10 +76,26 @@ public class GameManager : MonoBehaviour
         enemy.transform.SetParent(_deadEnemy.transform);
         enemy.SetActive(false);
     }
+    #endregion
 
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     public IEnumerator ShakeCamera(float durartion, float amplitude, float frequency)
