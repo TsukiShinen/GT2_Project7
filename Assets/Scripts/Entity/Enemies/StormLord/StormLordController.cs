@@ -22,7 +22,7 @@ public class StormLordController : Enemy
         AttackState = new StormLordAttackState(this);
     }
 
-    void Start()
+    public override void Start()
     {
         FirstAttackBox.GetComponent<HitPlayer>().damage = Attack;
         SecondAttackBox.GetComponent<HitPlayer>().damage = Attack;

@@ -26,7 +26,7 @@ public class SamuraiController : Enemy
         SpriteRenderer = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
     }
 
-    void Start()
+    public override void Start()
     {
         FirstAttackBox.GetComponent<HitPlayer>().damage = Attack;
         SecondAttackBox.GetComponent<HitPlayer>().damage = Attack;
