@@ -10,9 +10,16 @@ public class StarCoin : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
-            IsTaken = true;
-            AudioManager.Instance.Play("StarCoin");
+            StartCoroutine(Despawn());
         }
+    }
+
+    private IEnumerator Despawn()
+    {
+        gameObject.GetComponent<Animator>().speed *= 8;
+        AudioManager.Instance.Play("StarCoin");
+        yield return new WaitForSeconds(1f);
+        gameObject.SetActive(false);
+        IsTaken = true;
     }
 }
