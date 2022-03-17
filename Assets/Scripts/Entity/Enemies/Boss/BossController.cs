@@ -22,7 +22,7 @@ public class BossController : Enemy
         WanderState = new BossWanderState(this);
     }
 
-    private void Start()
+    public override void Start()
     {
         FirstAttackBox.GetComponent<HitPlayer>().damage = Attack;
         SecondAttackBox.GetComponent<HitPlayer>().damage = Attack;

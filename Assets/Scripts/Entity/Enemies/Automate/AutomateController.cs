@@ -25,7 +25,7 @@ public class AutomateController : Enemy
         NoneState = new AutomateNoneState(this);
     }
 
-    void Start()
+    public override void Start()
     {
         AttackBox.GetComponent<HitPlayer>().damage = Attack;
 

@@ -20,6 +20,11 @@ public class Enemy : Entity
         Direction = 1;
     }
 
+    public virtual void Start()
+    {
+
+    }
+
     #region Patrol
     public void Patrol()
     {
@@ -75,7 +80,9 @@ public class Enemy : Entity
     public void Respawn()
     {
         transform.position = _initialTransform.position;
+        lifeBar.gameObject.SetActive(true);
         Awake();
+        Start();
     }
 
     public override IEnumerator Death()
