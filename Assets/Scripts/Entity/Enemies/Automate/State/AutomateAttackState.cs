@@ -48,6 +48,7 @@ public class AutomateAttackState : IState
 
     private IEnumerator Attack()
     {
+        yield return new WaitForSeconds(1f);
         _automate.AttackBox.SetActive(true);
         _automate.Animator.SetTrigger("Charge");
         yield return new WaitForSeconds(0.6f);
