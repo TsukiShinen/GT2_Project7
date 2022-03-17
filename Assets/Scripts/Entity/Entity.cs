@@ -151,13 +151,17 @@ public class Entity : StateMachine
         string animToPlayer = IsAlive ? "Hit" : "Die";
         Animator.SetTrigger(animToPlayer);
 
-
+        
         if (IsAlive) { StartCoroutine(GetHit(knockBack)); }
-        else { StartCoroutine(Death()); }
+        else {
+            StopAllCoroutines();
+            StartCoroutine(Death()); 
+        }
     }
 
     public virtual IEnumerator Death()
     {
+        Rigidbody.velocity = Vector3.zero;
         _currentState = null;
         yield return null;
     }

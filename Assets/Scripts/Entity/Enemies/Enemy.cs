@@ -87,8 +87,8 @@ public class Enemy : Entity
 
     public override IEnumerator Death()
     {
+        
         yield return StartCoroutine(base.Death());
-
         lifeBar.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
         GameManager.Instance.AddDeadEnemy(gameObject);

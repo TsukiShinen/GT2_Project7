@@ -40,11 +40,11 @@ public class AutomateController : Enemy
 
     public override IEnumerator Death()
     {
-        _currentState = null;
         Rigidbody.velocity = Vector3.zero;
+        _currentState = null;
         lifeBar.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
+        GameManager.Instance.AddDeadEnemy(gameObject);
         Instantiate(Prefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
     }
 }
