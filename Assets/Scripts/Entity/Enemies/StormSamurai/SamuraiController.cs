@@ -28,6 +28,8 @@ public class SamuraiController : Enemy
 
     public override void Start()
     {
+        base.Start();
+
         FirstAttackBox.GetComponent<HitPlayer>().damage = Attack;
         SecondAttackBox.GetComponent<HitPlayer>().damage = Attack;
 
@@ -45,5 +47,11 @@ public class SamuraiController : Enemy
     {
         base.Hit(knockBack, damage);
         AudioManager.Instance.Play("EnemyHurt");
+    }
+
+    public override IEnumerator Death()
+    {
+        DayNightManager.Instance.SetLightIntensity -= UpdateMaterial;
+        yield return StartCoroutine(base.Death());
     }
 }

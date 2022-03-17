@@ -27,6 +27,8 @@ public class AutomateController : Enemy
 
     public override void Start()
     {
+        base.Start();
+
         AttackBox.GetComponent<HitPlayer>().damage = Attack;
 
         ChangeState(WanderState);

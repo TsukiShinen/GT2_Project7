@@ -24,6 +24,8 @@ public class BossController : Enemy
 
     public override void Start()
     {
+        base.Start();
+
         FirstAttackBox.GetComponent<HitPlayer>().damage = Attack;
         SecondAttackBox.GetComponent<HitPlayer>().damage = Attack;
 

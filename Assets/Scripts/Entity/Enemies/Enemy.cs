@@ -22,7 +22,7 @@ public class Enemy : Entity
 
     public virtual void Start()
     {
-
+        GameManager.Instance.RegisterEnemy(gameObject);
     }
 
     #region Patrol

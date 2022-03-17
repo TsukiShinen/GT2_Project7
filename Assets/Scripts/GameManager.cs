@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            Load();
             DontDestroyOnLoad(gameObject);
         } else
         {
@@ -35,34 +36,52 @@ public class GameManager : MonoBehaviour
 
 
 
-    void Start()
+    void Load()
     {
         _virtualCameraNoise = _virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        _deadEnemy = new GameObject("Dead Enemy");
-        _deadEnemy.transform.SetParent(transform);
+        _deadEnemies = new GameObject("Dead Enemy");
+        AliveEnemies = new GameObject("Alive Enemy");
+        _deadEnemies.transform.SetParent(transform);
+        AliveEnemies.transform.SetParent(transform);
     }
 
     #region Checkpoint and enemy
     private Transform _checkpoint;
-    private GameObject _deadEnemy;
+    private GameObject _deadEnemies;
+    public GameObject AliveEnemies;
+
     public void RegisterCheckpoint(Transform checkpoint)
     {
         _checkpoint = checkpoint;
-        for (int i = 0; i < _deadEnemy.transform.childCount; i++)
+        for (int i = 0; i < _deadEnemies.transform.childCount; i++)
         {
-            Destroy(_deadEnemy.transform.GetChild(i).gameObject);
+            Destroy(_deadEnemies.transform.GetChild(i).gameObject);
         }
+    }
+
+    public void RegisterEnemy(GameObject enemy)
+    {
+        enemy.transform.SetParent(AliveEnemies.transform, false);
     }
 
     public IEnumerator LoadLastCheckPoint()
     {
+        // Stop Shake if u die during the dash
+        _virtualCameraNoise.m_AmplitudeGain = 0f;
+        _virtualCameraNoise.m_FrequencyGain = 0f;
+
         _transition.SetTrigger("Start");
         if (_checkpoint == null) { Reload(); StopCoroutine(LoadLastCheckPoint()); }
-        for (int i = 0; i < _deadEnemy.transform.childCount; i++)
+        for (int i = 0; i < _deadEnemies.transform.childCount; i++)
         {
-            GameObject enemy = _deadEnemy.transform.GetChild(i).gameObject;
+            GameObject enemy = _deadEnemies.transform.GetChild(i).gameObject;
             enemy.SetActive(true);
-            enemy.transform.SetParent(null);
+            enemy.transform.SetParent(AliveEnemies.transform);
+            enemy.GetComponent<Enemy>().Respawn();
+        }
+        for (int i = 0; i < AliveEnemies.transform.childCount; i++)
+        {
+            GameObject enemy = AliveEnemies.transform.GetChild(i).gameObject;
             enemy.GetComponent<Enemy>().Respawn();
         }
 
@@ -73,7 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void AddDeadEnemy(GameObject enemy)
     {
-        enemy.transform.SetParent(_deadEnemy.transform);
+        enemy.transform.SetParent(_deadEnemies.transform);
         enemy.SetActive(false);
     }
     #endregion
@@ -114,4 +133,5 @@ public class GameManager : MonoBehaviour
         _virtualCameraNoise.m_FrequencyGain = 0f;
 
     }
+
 }

@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatController : Entity
+public class BatController : Enemy
 {
     public float Speed;
     public float AttackRange;
     public float AttackCooldown = 1f;
     public float AttackTimer { get; set; }
 
-    public DetectPlayer Detection { get; private set; }
     public DetectPlayer DetectionDay;
     public DetectPlayer DetectionNight;
     public GameObject AttackBox;
@@ -48,8 +47,10 @@ public class BatController : Entity
         }
     }
 
-    void Start()
+    public override void Start()
     {
+        base.Start();
+
         DayNightManager.Instance.EventDay += OnDay;
         ChangeState(IdleState);
     }
@@ -64,16 +65,12 @@ public class BatController : Entity
     {
         base.Hit(knockBack, damage);
         AudioManager.Instance.Play("BatHurt");
-        if (!IsAlive) { StartCoroutine(Death()); }
     }
 
-    private IEnumerator Death()
+    public override IEnumerator Death()
     {
-        _currentState = null;
         AudioManager.Instance.Play("BatDeath");
-        Rigidbody.velocity = Vector3.zero;
-        lifeBar.gameObject.SetActive(false);
-        yield return new WaitForSeconds(1f);
-        Destroy(gameObject);
+
+        yield return StartCoroutine(base.Death());
     }
 }
