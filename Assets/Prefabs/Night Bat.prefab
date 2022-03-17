@@ -187,6 +187,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EntityData: {fileID: 11400000, guid: cb052cfe994bb2f429e323e02a065fd5, type: 2}
   lifeBar: {fileID: 3840393134345865630}
+  HurtParticle: {fileID: 0}
+  GroundCheckPoint: {fileID: 0}
+  GroundCheckSize: {x: 0, y: 0}
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   Speed: 50
   AttackRange: 1.5
   AttackCooldown: 1

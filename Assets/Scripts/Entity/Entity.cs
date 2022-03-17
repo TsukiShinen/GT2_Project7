@@ -31,10 +31,11 @@ public class Entity : StateMachine
         while (lifeBar.value != newValue)
         {
             lifeBar.value -= Time.deltaTime * 4;
-            if (lifeBar.value < newValue) { lifeBar.value = newValue; }
+            if (lifeBar.value < newValue) { lifeBar.value = newValue; break; }
 
             yield return null;
         }
+        Debug.Log(gameObject.name + " HP : " + newValue);
     }
 
     private IEnumerator IncreaceLifeBar(float newValue)
@@ -151,7 +152,15 @@ public class Entity : StateMachine
         string animToPlayer = IsAlive ? "Hit" : "Die";
         Animator.SetTrigger(animToPlayer);
 
-        StartCoroutine(GetHit(knockBack));
+
+        if (IsAlive) { StartCoroutine(GetHit(knockBack)); }
+        else { StartCoroutine(Death()); }
+    }
+
+    public virtual IEnumerator Death()
+    {
+        _currentState = null;
+        yield return null;
     }
 
     private IEnumerator GetHit(Vector2 knockBack)

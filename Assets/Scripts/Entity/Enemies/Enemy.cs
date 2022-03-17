@@ -68,17 +68,11 @@ public class Enemy : Entity
     #endregion
 
     #region Hit and Death
-    public override void Hit(Vector2 knockBack, int damage)
-    {
-        base.Hit(knockBack, damage);
 
-        if (!IsAlive) { StartCoroutine(Death()); }
-    }
-
-    public virtual IEnumerator Death()
+    public override IEnumerator Death()
     {
-        _currentState = null;
-        Rigidbody.velocity = Vector3.zero;
+        yield return StartCoroutine(base.Death());
+
         lifeBar.gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
