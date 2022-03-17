@@ -7,6 +7,6 @@ public class Checkpoint : MonoBehaviour
     public void Save()
     {
         FindObjectOfType<Player>().Heal();
-        GameManager.Instance.RegisterChackpoint(transform);
+        GameManager.Instance.RegisterCheckpoint(transform);
     }
 }

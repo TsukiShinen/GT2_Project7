@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Player : Entity
 {
+    public ParticleSystem DeathParticule;
+
     [Header("Jump")]
     public float JumpForce;
     [Range(0f, 1f)]
@@ -43,8 +45,6 @@ public class Player : Entity
     public PlayerAttackState AttackState { get; private set; }
     public PlayerDistanceAttack DistanceAttackState { get; private set; }
 
-    private Checkpoint lastCheckPoint;
-
     public bool CanDash { get; set; }
     public bool CanAttackDistance { get; set; }
 
@@ -53,6 +53,9 @@ public class Player : Entity
     {
         transform.position = checkPoint.position;
         StopAllCoroutines();
+        GetComponentInChildren<SpriteRenderer>().enabled = true;
+        GetComponentInChildren<BoxCollider2D>().enabled = true;
+        GetComponentInChildren<Rigidbody2D>().WakeUp();
         Awake();
         Start();
     }
@@ -80,7 +83,6 @@ public class Player : Entity
 
         CanDash = false;
         CanAttackDistance = false;
-        Debug.Log("Awake");
     }
 
     void Start()
@@ -92,6 +94,7 @@ public class Player : Entity
         DistanceAttackBox.GetComponent<HitEnemy>().damage = Attack;
         DistanceAttackBox2.GetComponent<HitEnemy>().damage = Attack;
 
+        //GameManager.Instance.RegisterCheckpoint(transform);
         ChangeState(IdleState);
     }
 
@@ -120,9 +123,13 @@ public class Player : Entity
 
     public override IEnumerator Death()
     {
-        yield return StartCoroutine(base.Death())   ;
-
-        GameManager.Instance.LoadLastCheckPoint();
+        yield return StartCoroutine(base.Death());
+        DeathParticule.Play();
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+        GetComponentInChildren<BoxCollider2D>().enabled = false;
+        GetComponentInChildren<Rigidbody2D>().Sleep();
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(GameManager.Instance.LoadLastCheckPoint());
     }
 
 }

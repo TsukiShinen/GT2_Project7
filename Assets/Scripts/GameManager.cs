@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     #endregion
 
     [SerializeField]
+    private Animator _transition;
+
+    [SerializeField]
     private CinemachineVirtualCamera _virtualCamera;
     private CinemachineBasicMultiChannelPerlin _virtualCameraNoise;
 
@@ -37,7 +40,7 @@ public class GameManager : MonoBehaviour
         _deadEnemy.transform.SetParent(transform);
     }
 
-    public void RegisterChackpoint(Transform checkpoint)
+    public void RegisterCheckpoint(Transform checkpoint)
     {
         _checkpoint = checkpoint;
         for (int i = 0; i < _deadEnemy.transform.childCount; i++)
@@ -46,12 +49,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadLastCheckPoint()
+    public IEnumerator LoadLastCheckPoint()
     {
-        if (_checkpoint == null) { Reload(); return; }
-
-        FindObjectOfType<Player>().Respawn(_checkpoint);
-
+        _transition.SetTrigger("Start");
+        if (_checkpoint == null) { Reload(); StopCoroutine(LoadLastCheckPoint()); }
         for (int i = 0; i < _deadEnemy.transform.childCount; i++)
         {
             GameObject enemy = _deadEnemy.transform.GetChild(i).gameObject;
@@ -59,6 +60,10 @@ public class GameManager : MonoBehaviour
             enemy.transform.SetParent(null);
             enemy.GetComponent<Enemy>().Respawn();
         }
+
+        yield return new WaitForSeconds(1f);
+        _transition.SetTrigger("End");
+        FindObjectOfType<Player>().Respawn(_checkpoint);
     }
 
     public void AddDeadEnemy(GameObject enemy)
