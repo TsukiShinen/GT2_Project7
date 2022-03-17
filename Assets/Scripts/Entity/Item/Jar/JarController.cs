@@ -57,15 +57,17 @@ public class JarController : Entity
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Rigidbody.velocity = new Vector2(0, 0);
+            lifeBar = null;
             _player.transform.parent = null;
             _player.SetActive(true);
+            Rigidbody.velocity = new Vector2(0, 0);
             BoxCollider.isTrigger = true;
             Rigidbody.gravityScale = 0;
             transform.GetChild(2).gameObject.SetActive(false);
             transform.gameObject.tag = "Untagged";
+            Animator.SetBool("Run", false);
             Animator.SetBool("Control", false);
-            ChangeState(null);
+            _currentState = null;
         }
     }
 
@@ -86,13 +88,15 @@ public class JarController : Entity
         Rigidbody.gravityScale = 1;
         GravityScale = Rigidbody.gravityScale;
         transform.GetChild(2).gameObject.SetActive(true);
-        transform.gameObject.tag = "Enemy";
+        transform.gameObject.tag = "Jar";
         Animator.SetBool("Control", true);
         ChangeState(IdleState);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player")) { return; }
+
         _player = collision.gameObject;
     }
 
