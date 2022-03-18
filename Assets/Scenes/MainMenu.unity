@@ -1249,7 +1249,7 @@ MonoBehaviour:
   Sounds:
   - Name: Footstep
     Clip: {fileID: 8300000, guid: a46939c4a66443147b7cbf932e8e3c00, type: 3}
-    Volume: 0.088
+    Volume: 0.3
     Pitch: 1
     Loop: 1
     Source: {fileID: 0}
@@ -1266,9 +1266,9 @@ MonoBehaviour:
     Loop: 0
     Source: {fileID: 0}
   - Name: Hit2
-    Clip: {fileID: 8300000, guid: 5fa9717ad7359e44eae05ac9fb20eeed, type: 3}
+    Clip: {fileID: 8300000, guid: 219870672ebeb4041a09587f500d1a18, type: 3}
     Volume: 0.3
-    Pitch: 1
+    Pitch: 1.5
     Loop: 0
     Source: {fileID: 0}
   - Name: Dash
@@ -1429,7 +1429,7 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Name: StartMusic
     Clip: {fileID: 8300000, guid: 713a8b7ef0db15548a49ddb32d84830f, type: 3}
-    Volume: 0.3
+    Volume: 0.2
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}
@@ -1450,6 +1450,12 @@ MonoBehaviour:
     Volume: 0.1
     Pitch: 1
     Loop: 1
+    Source: {fileID: 0}
+  - Name: VictoryMusic
+    Clip: {fileID: 8300000, guid: 8462bf9b4649ca24ebef0b0715f7c715, type: 3}
+    Volume: 0.1
+    Pitch: 1
+    Loop: 0
     Source: {fileID: 0}
 --- !u!4 &2082743592
 Transform:

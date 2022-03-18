@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 51f355f401905004aa001304b97dc75c
   - enabled: 1
-    path: Assets/Scenes/OVERClock's Scene.unity
+    path: Assets/Scenes/MainLevel.unity
     guid: 2d573fc2ee8b2e94982131ca475eaf28
+  - enabled: 1
+    path: Assets/Scenes/EndMenu.unity
+    guid: cd3f6357baf477f4ea8f9e800c5b7a62
   m_configObjects: {}

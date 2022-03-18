@@ -37,4 +37,11 @@ public class BossController : Enemy
         base.Hit(knockBack, damage);
         AudioManager.Instance.Play("EnemyHurt");
     }
+
+    public override IEnumerator Death()
+    {
+        AudioManager.Instance.Stop("BossMusic");
+        AudioManager.Instance.Resume("OverworldMusic");
+        return base.Death();
+    }
 }
