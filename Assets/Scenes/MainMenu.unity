@@ -218,7 +218,7 @@ RectTransform:
   - {fileID: 997216694}
   - {fileID: 1618270826}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -776,7 +776,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508041506
 GameObject:
@@ -1217,3 +1217,252 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657553221}
   m_CullTransparentMesh: 1
+--- !u!1 &2082743590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2082743592}
+  - component: {fileID: 2082743591}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2082743591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082743590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69404d03bbf6df4f811fea72363bc97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - Name: Footstep
+    Clip: {fileID: 8300000, guid: a46939c4a66443147b7cbf932e8e3c00, type: 3}
+    Volume: 0.088
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: Jump
+    Clip: {fileID: 8300000, guid: e549e508e65554c4dbd9d2c87b83eae2, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Hit1
+    Clip: {fileID: 8300000, guid: 90515f7528ffd5e41b9486d0176efa6d, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Hit2
+    Clip: {fileID: 8300000, guid: 5fa9717ad7359e44eae05ac9fb20eeed, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Dash
+    Clip: {fileID: 8300000, guid: 825c09eeb59434645a7e4ca0f7c7e979, type: 3}
+    Volume: 0.2
+    Pitch: 3
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: DistanceHit
+    Clip: {fileID: 8300000, guid: 825c09eeb59434645a7e4ca0f7c7e979, type: 3}
+    Volume: 0.3
+    Pitch: 2
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Splash
+    Clip: {fileID: 8300000, guid: 1acdfaabb83572a4fa3f3eb2480c1eda, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Swim
+    Clip: {fileID: 8300000, guid: 557786bdde2ecdf44b8204bff595f285, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: StarCoin
+    Clip: {fileID: 8300000, guid: fabd19fb1f7c8cf458bfe3dce26a1940, type: 3}
+    Volume: 0.2
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Key
+    Clip: {fileID: 8300000, guid: 49d33d45ad9cd734bbd67108bbe4972a, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: EnemyDeath
+    Clip: {fileID: 8300000, guid: 44cc3e98ff286cd47a1f74e11453d26a, type: 3}
+    Volume: 0.3
+    Pitch: 0.5
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: EnemyHurt
+    Clip: {fileID: 8300000, guid: 6588b418e73e56946ba1eb60e7f205eb, type: 3}
+    Volume: 0.3
+    Pitch: 1.5
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: BatHit
+    Clip: {fileID: 8300000, guid: dd0c6b59488f8cf44952d9548b206e17, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: BatHurt
+    Clip: {fileID: 8300000, guid: 1371aa2228a3f3540a9f59c210b79095, type: 3}
+    Volume: 0.3
+    Pitch: 2
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: BatDeath
+    Clip: {fileID: 8300000, guid: 1371aa2228a3f3540a9f59c210b79095, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: BossHit1
+    Clip: {fileID: 8300000, guid: b3088bb764756df45bb7d592d754cc01, type: 3}
+    Volume: 0.3
+    Pitch: 1.2
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: BossHit2
+    Clip: {fileID: 8300000, guid: b3088bb764756df45bb7d592d754cc01, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: JarHit
+    Clip: {fileID: 8300000, guid: 725740f452350cd418f086e7fa89254e, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: JarHurt
+    Clip: {fileID: 8300000, guid: 7948c5e7581e6b74fbcfffc3538659f0, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SamuraiHit1
+    Clip: {fileID: 8300000, guid: 64149bc7535b1164cad7f3814fd2cd65, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: SamuraiHit2
+    Clip: {fileID: 8300000, guid: 814f45823eda33342a4b6be45cb0ab90, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: StormHeadHit1
+    Clip: {fileID: 8300000, guid: 533704ef2dc2b1a408142174430e6b8a, type: 3}
+    Volume: 0.3
+    Pitch: 1.2
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: StormHeadHit2
+    Clip: {fileID: 8300000, guid: 533704ef2dc2b1a408142174430e6b8a, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: JarFootStep
+    Clip: {fileID: 8300000, guid: a46939c4a66443147b7cbf932e8e3c00, type: 3}
+    Volume: 0.3
+    Pitch: 1.5
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: JarJump
+    Clip: {fileID: 8300000, guid: e549e508e65554c4dbd9d2c87b83eae2, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: StormLordHit1_1
+    Clip: {fileID: 8300000, guid: b3088bb764756df45bb7d592d754cc01, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: StormLordHit1_2
+    Clip: {fileID: 8300000, guid: 533704ef2dc2b1a408142174430e6b8a, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: StormLordHit2
+    Clip: {fileID: 8300000, guid: 533704ef2dc2b1a408142174430e6b8a, type: 3}
+    Volume: 0.3
+    Pitch: 1.5
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: Click
+    Clip: {fileID: 8300000, guid: 5ad7a177fca528c4eb55c27491fb1e34, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: MainMenuMusic
+    Clip: {fileID: 8300000, guid: ba411bbb5e8a3724f94ba47ae401cf51, type: 3}
+    Volume: 0.1
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: StartMusic
+    Clip: {fileID: 8300000, guid: 713a8b7ef0db15548a49ddb32d84830f, type: 3}
+    Volume: 0.3
+    Pitch: 1
+    Loop: 0
+    Source: {fileID: 0}
+  - Name: OverworldMusic
+    Clip: {fileID: 8300000, guid: 90d3c9ce73264c8479be26ad6fb41e9e, type: 3}
+    Volume: 0.1
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: BossMusic
+    Clip: {fileID: 8300000, guid: 421d1310101535245a11e2738ae793f6, type: 3}
+    Volume: 0.1
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+  - Name: EndMusic
+    Clip: {fileID: 8300000, guid: 374def823fc80c547b1431ed7702fbbb, type: 3}
+    Volume: 0.1
+    Pitch: 1
+    Loop: 1
+    Source: {fileID: 0}
+--- !u!4 &2082743592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082743590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

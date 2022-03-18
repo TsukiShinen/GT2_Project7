@@ -34,7 +34,10 @@ public class GameManager : MonoBehaviour
     private CinemachineVirtualCamera _virtualCamera;
     private CinemachineBasicMultiChannelPerlin _virtualCameraNoise;
 
-
+    private void Start()
+    {
+        AudioManager.Instance.Play("OverworldMusic");
+    }
 
     void Load()
     {
