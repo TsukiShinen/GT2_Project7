@@ -66,7 +66,7 @@ public class PlayerAttackState : IState
     {
         yield return new WaitForSeconds(0.1f);
         _player.ComboBox.SetActive(true);
-        AudioManager.Instance.Play("Hit2");
+        //AudioManager.Instance.Play("Hit2");
         yield return new WaitForSeconds(0.4f);
         _player.ComboBox.SetActive(false);
 

@@ -26,7 +26,9 @@ public class JarController : Entity
 
     private GameObject _player;
 
-    public GameObject _canvas;
+    public GameObject Canvas;
+
+    private bool _isControl;
 
     public override void Awake()
     {
@@ -59,12 +61,11 @@ public class JarController : Entity
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            _isControl = false;
+            Debug.Log(_isControl);
             lifeBar = null;
             _player.transform.parent = null;
             _player.SetActive(true);
-            Rigidbody.velocity = new Vector2(0, 0);
-            BoxCollider.isTrigger = true;
-            Rigidbody.gravityScale = 0;
             transform.GetChild(2).gameObject.SetActive(false);
             transform.gameObject.tag = "Untagged";
             Animator.SetBool("Run", false);
@@ -79,10 +80,18 @@ public class JarController : Entity
         {
             LastGroundedTime = JumpCoyoteTime;
         }
+        if (Physics2D.OverlapBox(GroundCheckPoint.position, GroundCheckSize, 0, GroundLayer) && !_isControl)
+        {
+            Debug.Log(_isControl);
+            BoxCollider.isTrigger = true;
+            Rigidbody.gravityScale = 0;
+            Rigidbody.velocity = new Vector2(0, 0);
+        }
     }
 
     public void PlayerControlJar()
     {
+        _isControl = true;
         lifeBar = _player.gameObject.GetComponent<Entity>().lifeBar;
         _player.transform.parent = transform;
         _player.SetActive(false);
@@ -101,7 +110,7 @@ public class JarController : Entity
 
         _player = collision.gameObject;
 
-        _canvas = transform.GetChild(3).gameObject;
+        Canvas = transform.GetChild(3).gameObject;
     }
 
 }
