@@ -1453,7 +1453,7 @@ MonoBehaviour:
     Source: {fileID: 0}
   - Name: VictoryMusic
     Clip: {fileID: 8300000, guid: 8462bf9b4649ca24ebef0b0715f7c715, type: 3}
-    Volume: 0.1
+    Volume: 0.3
     Pitch: 1
     Loop: 0
     Source: {fileID: 0}

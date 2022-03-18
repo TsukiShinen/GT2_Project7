@@ -41,7 +41,7 @@ public class StormLordController : Enemy
     public override IEnumerator Death()
     {
         AudioManager.Instance.Stop("BossMusic");
-        AudioManager.Instance.Resume("OverworldMusic");
+        AudioManager.Instance.Play("VictoryMusic");
         return base.Death();
     }
 }

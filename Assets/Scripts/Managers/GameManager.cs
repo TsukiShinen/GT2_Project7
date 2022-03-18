@@ -43,8 +43,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if(!(finalBossLife.value <= 0f)) { return; }
-
-
         StartCoroutine(Win());
     }
 
@@ -66,8 +64,6 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Win()
     {
-        AudioManager.Instance.Stop("OverworldMusic");
-        AudioManager.Instance.Play("VictoryMusic");
         yield return new WaitForSeconds(7f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
