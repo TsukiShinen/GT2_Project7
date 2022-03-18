@@ -36,6 +36,6 @@ public class SamuraiTargetState : IState
 
     public void Exit()
     {
-        _samurai.Animator.SetBool("Run", false);
+        _samurai.Animator.SetBool("Running", false);
     }
 }
