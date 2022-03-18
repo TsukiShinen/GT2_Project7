@@ -64,7 +64,14 @@ public class Enemy : Entity
 
         Vector2 dir = ((Detection.PlayerPosition - transform.position) * new Vector2(1, 0)).normalized;
         XInput = dir.x;
-        Movement();
+        if (!Physics2D.OverlapCircle(GroundCheckPoint.position, 0.1f, GroundLayer)) 
+        { 
+            Rigidbody.velocity = Vector2.zero; 
+        }
+        else
+        {
+            Movement();
+        }
 
         if (Mathf.Sign(Rigidbody.velocity.x) != Mathf.Sign(transform.GetChild(0).localScale.x) && Rigidbody.velocity.x != 0)
         {
