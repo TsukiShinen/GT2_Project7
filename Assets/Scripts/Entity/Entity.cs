@@ -35,6 +35,7 @@ public class Entity : StateMachine
 
             yield return null;
         }
+        yield return null;
     }
 
     public IEnumerator IncreaceLifeBar(float newValue)
@@ -46,6 +47,7 @@ public class Entity : StateMachine
 
             yield return null;
         }
+        yield return null;
     }
     #endregion
 
@@ -146,7 +148,6 @@ public class Entity : StateMachine
     public virtual void Hit(Vector2 knockBack, int damage)
     {
         Life -= damage - Defense;
-        if (lifeBar != null) { StartCoroutine(DecreaseLifeBar(Life)); }
 
         string animToPlayer = IsAlive ? "Hit" : "Die";
         Animator.SetTrigger(animToPlayer);
@@ -155,8 +156,9 @@ public class Entity : StateMachine
         if (IsAlive) { StartCoroutine(GetHit(knockBack)); }
         else {
             StopAllCoroutines();
-            StartCoroutine(Death()); 
+            StartCoroutine(Death());
         }
+        if (lifeBar != null) { StartCoroutine(DecreaseLifeBar(Life)); }
     }
 
     public virtual IEnumerator Death()
