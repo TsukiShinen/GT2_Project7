@@ -131,6 +131,9 @@ public class GameManager : MonoBehaviour
 
     public void Reload()
     {
+        AudioManager.Instance.Stop("BossMusic");
+        AudioManager.Instance.Play("Click");
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -141,12 +144,17 @@ public class GameManager : MonoBehaviour
 
     public void Resume()
     {
+        AudioManager.Instance.Play("Click");
         Time.timeScale = 1f;
     }
 
     public void Quit()
     {
-        Application.Quit();
+        AudioManager.Instance.Stop("OverworldMusic");
+        AudioManager.Instance.Stop("BossMusic");
+        AudioManager.Instance.Play("Click");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public IEnumerator ShakeCamera(float durartion, float amplitude, float frequency)

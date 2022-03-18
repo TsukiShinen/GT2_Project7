@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxLife: 10
   Attack: 3
-  Defense: 2
+  Defense: 1
   MoveSpeed: 3
   Acceleration: 9
   Decceleration: 9

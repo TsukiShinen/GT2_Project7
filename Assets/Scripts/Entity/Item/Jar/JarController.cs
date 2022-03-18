@@ -71,6 +71,7 @@ public class JarController : Entity
             Animator.SetBool("Run", false);
             Animator.SetBool("Control", false);
             _currentState = null;
+            AudioManager.Instance.Stop("JarFootStep");
         }
     }
 

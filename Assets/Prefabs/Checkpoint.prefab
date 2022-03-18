@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a8927cce0bfea4b8fdc74937bd77f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _displayedText: Se reposer
+  _displayedText: Rest
   _canvasPrefab: {fileID: 3374697982526135635, guid: 0cca46aef6464224bb69f22cafeeca8c, type: 3}
   _actions:
     m_PersistentCalls:

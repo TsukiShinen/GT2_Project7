@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90acfe99c1aa2a24d99b4100a0c19205, type: 3}
   m_Name: Storm Lord
   m_EditorClassIdentifier: 
-  MaxLife: 10
-  Attack: 5
-  Defense: 2
+  MaxLife: 30
+  Attack: 3
+  Defense: 4
   MoveSpeed: 3
   Acceleration: 9
   Decceleration: 9

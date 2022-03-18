@@ -123,6 +123,7 @@ public class Player : Entity
 
     public override IEnumerator Death()
     {
+        AudioManager.Instance.Stop("BossMusic");
         yield return StartCoroutine(base.Death());
         DeathParticule.Play();
         GetComponentInChildren<SpriteRenderer>().enabled = false;
@@ -130,6 +131,7 @@ public class Player : Entity
         GetComponentInChildren<Rigidbody2D>().Sleep();
         yield return new WaitForSeconds(1f);
         StartCoroutine(GameManager.Instance.LoadLastCheckPoint());
+        AudioManager.Instance.Resume("OverworldMusic");
     }
 
 }

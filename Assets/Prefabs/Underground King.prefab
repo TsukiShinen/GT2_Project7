@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 579249729}
   - component: {fileID: 579249728}
   m_Layer: 0
-  m_Name: Graphisme
+  m_Name: Graphisms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

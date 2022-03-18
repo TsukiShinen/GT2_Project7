@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a8927cce0bfea4b8fdc74937bd77f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _displayedText: Controller
+  _displayedText: Control
   _canvasPrefab: {fileID: 3374697982526135635, guid: 0cca46aef6464224bb69f22cafeeca8c, type: 3}
   _actions:
     m_PersistentCalls:
@@ -431,6 +431,7 @@ MonoBehaviour:
   JumpCoyoteTime: 0.15
   JumpBufferTime: 0.1
   FallGravityMultiplier: 1.9
+  Canvas: {fileID: 0}
 --- !u!1 &6802629039310911085
 GameObject:
   m_ObjectHideFlags: 0
